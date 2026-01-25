@@ -6,10 +6,12 @@ public abstract class Nepritel {
     protected String nazev;
     protected String popis;
     protected int zdravi;
-    protected int maxZdravi;
     protected int utok;
 
     public Nepritel(String nazev, int zdravi, int utok) {
+        this.nazev = nazev;
+        this.zdravi = zdravi;
+        this.utok = utok;
     }
 
     public void poskozeni(int poskozeni) {
@@ -22,7 +24,7 @@ public abstract class Nepritel {
     }
 
     public String zobrazStav() {
-        // Vrátí zdravi/maxZdravi"
+        // Vrátí zdravi
         return "";
     }
 } //TODO musím zajistit že poškození a zdraví bude vyrovnaný s tím co má hráč

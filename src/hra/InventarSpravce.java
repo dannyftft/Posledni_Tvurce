@@ -4,12 +4,12 @@ import predmety.Karta;
 import predmety.Predmet;
 import java.util.*;
 
-public class Inventar_Spravce {
+public class InventarSpravce {
     private int kapacita;
     private List<Predmet> sloty;
     private Karta karta;
 
-    public Inventar_Spravce() {
+    public InventarSpravce() {
         this.kapacita = 3;
         this.sloty = new ArrayList<>();
     }

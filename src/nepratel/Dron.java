@@ -1,8 +1,9 @@
 package nepratel;
 
 public class Dron extends Nepritel {
-    public Dron() {
-        super("dron", 20,  5);
+
+    public Dron(int zdravi, int poskozeni) {
+        super("dron", zdravi, poskozeni);
     }
 
     public void poskozeniKamenem() {

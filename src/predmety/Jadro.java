@@ -1,16 +1,13 @@
 package predmety;
 
 import hra.Hra;
-import postavy.Robot;
-import postavy.Postava;
-import lokace.Lokace;
 
 public class Jadro extends Predmet {
     private int bonusSila;
 
-    public Jadro() {
+    public Jadro(int bonusSila) {
         super("jadro");
-        this.bonusSila = 10;    //TODO možná načíst ze souboru/ možná poskozeni*sila místo sčítání
+        this.bonusSila = bonusSila;
     }
 
     @Override

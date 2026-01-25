@@ -7,7 +7,7 @@ public class Karta extends Predmet {
 
     public Karta() {
         super("karta");
-        this.uroven = 0;
+        this.uroven = 0; // možná lepší karta = nový předmět
     }
 
     @Override

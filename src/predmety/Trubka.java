@@ -5,9 +5,9 @@ import hra.Hra;
 public class Trubka extends Predmet {
     private int bonusSila;
 
-    public Trubka() {
+    public Trubka(int bonusPoskozeni) {
         super("trubka");
-        this.bonusSila = 15; //TODO možná načíst ze souboru
+        this.bonusSila = bonusPoskozeni;
     }
 
     @Override

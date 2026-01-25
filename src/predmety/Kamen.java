@@ -5,9 +5,9 @@ import hra.Hra;
 public class Kamen extends Predmet {
     private int poskozeni;
 
-    public Kamen() {
+    public Kamen(int bonusPoskozeni) {
         super("kamen");
-        this.poskozeni = 10; //TODO možná načíst ze souboru
+        this.poskozeni = bonusPoskozeni;
     }
 
     @Override

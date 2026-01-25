@@ -10,7 +10,11 @@ public abstract class Predmet {
 
     public Predmet(String nazev) {
         this.nazev = nazev;
-        this.popis = Cteni.PopisPredmetu(nazev);
+        this.popis = "";
+    }
+
+    public void nastavPopis(String popis) {
+        this.popis = popis;
     }
 
     public abstract String pouzit(Hra hra);

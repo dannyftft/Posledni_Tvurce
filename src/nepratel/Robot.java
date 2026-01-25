@@ -1,7 +1,7 @@
 package nepratel;
 
 public class Robot extends Nepritel {
-    public Robot() {
-        super("Robot", 30, 5);
+    public Robot(int zdravi, int poskozeni) {
+        super("robot", zdravi, poskozeni);
     }
 }

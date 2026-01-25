@@ -5,9 +5,9 @@ import hra.Hra;
 public class Deska extends Predmet {
     private int leceni;
 
-    public Deska() {
+    public Deska(int leceni) {
         super("deska");
-        this.leceni = 30; //TODO možná načíst ze souboru
+        this.leceni = leceni;
     }
 
     @Override

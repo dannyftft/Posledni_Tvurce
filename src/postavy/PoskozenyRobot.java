@@ -1,10 +1,10 @@
 package postavy;
 
-public class Robot extends Postava {
+public class PoskozenyRobot extends Postava {
     private boolean opraven;
 
-    public Robot() {
-        super("robot");
+    public PoskozenyRobot() {
+        super("poskozenyRobot");
         this.opraven = false;
     }
 

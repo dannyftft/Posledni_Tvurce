@@ -8,20 +8,26 @@ public class Hrac {
     private int utok;
 
     public void zran(int hodnota) {
-        // Sníží zdraví hráče
+        this.zdravi -= hodnota;
+        if (this.zdravi < 0) {
+            this.zdravi = 0;
+        }
     }
 
     public void vylec(int hodnota) {
-        // Zvýší zdraví hráče, max do maxZdravi
+        this.zdravi += hodnota;
+        if (this.zdravi > maxZdravi) {
+            this.zdravi = maxZdravi;
+        }
     }
 
     public void zvysSilu(int hodnota) {
-        // Trvale zvýší sílu hráče
+        this.sila += hodnota;
+        this.utok += hodnota;
     }
 
     public boolean jeNazivu() {
-        // Vrátí true pokud má hráč více než 0 zdraví
-        return false;
+        return zdravi > 0;
     }
 
     public int getUtok() {
@@ -38,5 +44,21 @@ public class Hrac {
 
     public int getSila() {
         return sila;
+    }
+
+    public void setZdravi(int zdravi) {
+        this.zdravi = zdravi;
+    }
+
+    public void setMaxZdravi(int maxZdravi) {
+        this.maxZdravi = maxZdravi;
+    }
+
+    public void setSila(int sila) {
+        this.sila = sila;
+    }
+
+    public void setUtok(int utok) {
+        this.utok = utok;
     }
 }

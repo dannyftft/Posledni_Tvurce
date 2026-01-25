@@ -6,6 +6,8 @@ public abstract class Postava {
     protected String popis;
 
     public Postava(String jmeno) {
+        this.jmeno = jmeno;
+        nactiPopis();
     }
 
     protected void nactiPopis() {

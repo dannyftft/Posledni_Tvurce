@@ -3,7 +3,7 @@
  */
 package data;
 
-public class Zapis {
+public class Ulozeni {
 
     public void Ulozit(int zdravi, int sila, String aktualniLokace) {
         // Zapíše stav hry do souboru
