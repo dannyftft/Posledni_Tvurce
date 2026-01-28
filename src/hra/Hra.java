@@ -9,6 +9,8 @@ import lokace.*;
 import predmety.*;
 import postavy.*;
 import nepratel.*;
+import prikaz.konzole.Konzole;
+
 import java.util.*;
 
 public class Hra {
@@ -28,6 +30,8 @@ public class Hra {
 
     public void start() {
         vytvorMapu();
+        Konzole konzole = new Konzole();
+        konzole.start();
         System.out.println(aktualniLokace.getPopis());
     }
 

@@ -1,0 +1,192 @@
+{
+  "hrac": {
+    "max_zdravi": 100,
+    "sila": 15,
+    "utok": 15
+  },
+  "lokace": [
+    {
+      "id": "zacatecni",
+      "nazev": "Místnost Probuzení",
+      "popis": "Stojíš v chladné místnosti osvětlené slabým nouzovým světlem. Vše působí mrtvě.",
+      "dalsi": "chodba",
+      "predchozi": null,
+      "muzuZpet": false,
+      "zamcena": false,
+      "pozadovana_uroven_karty": 0,
+      "predmety": ["kamen"],
+      "nepratelove": [],
+      "postavy": ["aurora"]
+    },
+    {
+      "id": "chodba",
+      "nazev": "Chodba",
+      "popis": "Úzká technická chodba se stopami boje. Něco se tu stále pohybuje.",
+      "dalsi": "laborator",
+      "predchozi": "zacatecni",
+      "muzuZpet": false,
+      "zamcena": true,
+      "pozadovana_uroven_karty": 1,
+      "predmety": ["karta"],
+      "nepratelove": ["robot", "dron"],
+      "postavy": ["aurora"]
+    },
+    {
+      "id": "laborator",
+      "nazev": "Laboratoř",
+      "popis": "Zničená laboratoř s funkčním terminálem. Obrazovka slabě bliká, jako by čekala na vstup.",
+      "dalsi": "servis",
+      "predchozi": "chodba",
+      "muzuZpet": false,
+      "zamcena": true,
+      "pozadovana_uroven_karty": 1,
+      "predmety": [],
+      "nepratelove": [],
+      "postavy": ["aurora"]
+    },
+    {
+      "id": "servis",
+      "nazev": "Servisní Místnost",
+      "popis": "Místnost plná nářadí a náhradních dílů. U stěny leží poškozený robot bez energie.",
+      "dalsi": "jidelna",
+      "predchozi": "laborator",
+      "muzuZpet": false,
+      "zamcena": true,
+      "pozadovana_uroven_karty": 1,
+      "predmety": ["jadro"],
+      "nepratelove": [],
+      "postavy": ["aurora", "poskozenyRobot"]
+    },
+    {
+      "id": "jidelna",
+      "nazev": "Jídelna",
+      "popis": "Opuštěná jídelna s převrženým nábytkem. Připomíná místo, kde kdysi někdo skutečně žil.",
+      "dalsi": "obytnyProstor",
+      "predchozi": "servis",
+      "muzuZpet": true,
+      "zamcena": false,
+      "pozadovana_uroven_karty": 1,
+      "predmety": ["trubka", "deska"],
+      "nepratelove": [],
+      "postavy": ["aurora"]
+    },
+    {
+      "id": "obytnyProstor",
+      "nazev": "Obytny prostor",
+      "popis": "Tiché obytné prostory s osobními věcmi dávno zmizených obyvatel.",
+      "dalsi": "testovaci",
+      "predchozi": "jidelna",
+      "muzuZpet": true,
+      "zamcena": false,
+      "pozadovana_uroven_karty": 0,
+      "predmety": ["kamen"],
+      "nepratelove": ["robot", "dron"],
+      "postavy": ["aurora"]
+    },
+    {
+      "id": "testovaci",
+      "nazev": "Testovací Místnost",
+      "popis": "Rozsáhlá aréna s masivními dveřmi. Cítíš, že jsi sem neměl nikdy vstoupit.",
+      "dalsi": "ridici",
+      "predchozi": "obytnyProstor",
+      "muzuZpet": false,
+      "zamcena": true,
+      "pozadovana_uroven_karty": 2,
+      "predmety": ["deska"],
+      "nepratelove": ["mech"],
+      "postavy": ["aurora"]
+    },
+    {
+      "id": "ridici",
+      "nazev": "Řídicí Místnost",
+      "popis": "Centrální místnost plná kabelů a terminálů. Zde je jádro Aurory.",
+      "dalsi": null,
+      "predchozi": "testovaci",
+      "muzuZpet": false,
+      "zamcena": true,
+      "pozadovana_uroven_karty": 2,
+      "predmety": [],
+      "nepratelove": [],
+      "postavy": ["aurora"]
+    }
+  ],
+  "predmety": [
+    {
+      "id": "deska",
+      "nazev": "Obvodová deska",
+      "popis": "Funkční elektronický modul schopný dočasně stabilizovat tělesné systémy.",
+      "leceni": 30,
+      "spotrebovatelny": true,
+      "zabira_slot": true
+    },
+    {
+      "id": "jadro",
+      "nazev": "Energetické jádro",
+      "popis": "Vysoce výkonný zdroj energie. Lze jej využít pro posílení sebe nebo opravu jiných.",
+      "bonus_sila": 10,
+      "spotrebovatelny": true,
+      "zabira_slot": true
+    },
+    {
+      "id": "kamen",
+      "nazev": "Kámen",
+      "popis": "Jednoduchý improvizovaný projektil. Překvapivě účinný proti dronům.",
+      "poskozeni": 10,
+      "spotrebovatelny": true,
+      "zabira_slot": true
+    },
+    {
+      "id": "karta",
+      "nazev": "Přístupová karta",
+      "popis": "Plastová karta s elektronickým čipem. Otevírá zabezpečené dveře.",
+      "uroven": 1,
+      "spotrebovatelny": false,
+      "zabira_slot": false
+    },
+    {
+      "id": "trubka",
+      "nazev": "Kovová trubka",
+      "popis": "Těžká kovová trubka vhodná pro boj zblízka.",
+      "bonus_sila": 20,
+      "spotrebovatelny": false,
+      "zabira_slot": true
+    }
+  ],
+  "postavy": [
+    {
+      "id": "poskozenyRobot",
+      "nazev": "Poškozený robot",
+      "popis": "Deaktivovaný humanoidní robot. Zdá se, že by mohl znovu fungovat.",
+      "opraven": false
+    },
+    {
+      "id": "aurora",
+      "nazev": "Aurora",
+      "popis": "Umělá inteligence. Sleduje tě a komentuje každý tvůj krok.",
+      "aktivni": true
+    }
+  ],
+  "nepratelove": [
+    {
+      "id": "robot",
+      "nazev": "Poškozený humanoidní robot",
+      "popis": "Starší humanoidní strážní jednotka s omezenou pohyblivostí.",
+      "utok": 5,
+      "zdravi": 30
+    },
+    {
+      "id": "dron",
+      "nazev": "Poškozený dron se zbraní",
+      "popis": "Létající bezpečnostní jednotka vybavená jednoduchou zbraní.",
+      "utok": 5,
+      "zdravi": 20
+    },
+    {
+      "id": "mech",
+      "nazev": "Testovací mech",
+      "popis": "Obří bojová jednotka přímo ovládaná Aurorou.",
+      "utok": 20,
+      "zdravi": 300
+    }
+  ]
+}

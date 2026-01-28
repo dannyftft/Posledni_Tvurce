@@ -14,6 +14,6 @@ public class Konec extends Prikaz {
 
     @Override
     public boolean exit() {
-        return false;
+        return true;
     }
 }

@@ -6,7 +6,7 @@ package data;
 public class Ulozeni {
 
     public void Ulozit(int zdravi, int sila, String aktualniLokace) {
-        // Zapíše stav hry do souboru
+        //TODO Zapíše stav hry do souboru
     }
     public void Nacti() {
         // Načte stav hry ze souboru

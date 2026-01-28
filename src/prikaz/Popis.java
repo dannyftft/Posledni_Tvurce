@@ -3,13 +3,13 @@ package prikaz;
 import hra.Hra;
 
 public class Popis extends Prikaz {
-    public Popis(Hra hra) {
+    public Popis (Hra hra){
         super(hra);
     }
 
     @Override
     public String execute() {
-        return null;
+        return hra.getAktualniLokace().getPopis();
     }
 
     @Override

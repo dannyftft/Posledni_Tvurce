@@ -1,6 +1,7 @@
 import hra.Hra;
 import hra.HraData;
 import hra.HraData.LokaceData;
+import prikaz.konzole.Konzole;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class Main {
         System.out.println("Nepratelove: " + data.nepratelove.size());
 
         //Pohyb
-        LokaceData lok = data.najdiLokaci("zacatecni");
+        LokaceData lok = data.najdiLokaci("obytnyProstor");
         System.out.println("Start: " + lok.nazev);
 
         lok = jdi(data, lok, lok.dalsi);
