@@ -1,7 +1,9 @@
 package lokace;
 
+import hra.HraData;
+
 public class Servis extends Lokace {
-    public Servis() {
-        super("servis");
+    public Servis(HraData.LokaceData data) {
+        super(data.id, data.nazev, data.popis);
     }
 }

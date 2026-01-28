@@ -17,8 +17,10 @@ public abstract class Lokace {
     protected boolean zamcena;
     protected int pozadovanaUrovenKarty;
 
-    public Lokace(String id) {
+    public Lokace(String id,String nazev, String popis) {
         this.id = id;
+        this.nazev = nazev;
+        this.popis = popis;
         this.sousedniLokace = new ArrayList<>();
         this.predmety = new ArrayList<>();
         this.postavy = new ArrayList<>();

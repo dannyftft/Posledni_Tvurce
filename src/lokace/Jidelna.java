@@ -1,7 +1,9 @@
 package lokace;
 
+import hra.HraData;
+
 public class Jidelna extends Lokace {
-    public Jidelna() {
-        super("jidelna");
+    public Jidelna(HraData.LokaceData data) {
+        super(data.id, data.nazev, data.popis);
     }
 }

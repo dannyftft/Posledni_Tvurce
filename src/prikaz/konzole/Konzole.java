@@ -24,7 +24,7 @@ public class Konzole {
         mapa.put("konec",new Konec(hra));
         mapa.put("mluv",new Mluv(hra));
         mapa.put("nemluv",new Nemluv(hra));
-        mapa.put("pomoc",new Pomoc(hra));
+        mapa.put("pomoc",new Pomoc(hra,this));
         mapa.put("popis",new Popis(hra));
         mapa.put("pouzij",new Pouzij(hra));
         mapa.put("prohledej",new Prohledej(hra));
@@ -47,15 +47,19 @@ public class Konzole {
         }
     }
 
-    private String nactiVstup() {
-        // načte jeden příkaz z konzole
-        return null;
-    }
-
     public void start() {
         inicializace();
         do {
             proved();
         } while (!exit);
+    }
+
+    public String SeznamPrikazu() {
+        String text = "Možné příkazy: ";
+
+        for (String nazevPrikazu : mapa.keySet()) {
+            text = text + nazevPrikazu + ", ";
+        }
+        return text;
     }
 }

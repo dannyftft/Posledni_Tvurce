@@ -6,12 +6,12 @@ import java.util.*;
 
 public class InventarSpravce {
     private int kapacita;
-    private List<Predmet> sloty;
+    private List<Predmet> predmety;
     private Karta karta;
 
     public InventarSpravce() {
         this.kapacita = 3;
-        this.sloty = new ArrayList<>();
+        this.predmety = new ArrayList<>();
     }
 
     public boolean pridejPredmet(Predmet predmet) {
@@ -24,8 +24,8 @@ public class InventarSpravce {
             return true;
         }
 
-        if (sloty.size() < kapacita) {
-            sloty.add(predmet);
+        if (predmety.size() < kapacita) {
+            predmety.add(predmet);
             return true;
         }
 
@@ -33,7 +33,7 @@ public class InventarSpravce {
     }
 
     public void odeberPredmet(Predmet predmet) {
-        sloty.remove(predmet);
+        predmety.remove(predmet);
         if (predmet.getId().equals("karta")) {
             karta = null;
         }
@@ -47,11 +47,11 @@ public class InventarSpravce {
         }
 
         s = s + "Veci: ";
-        for (Predmet p : sloty) {
+        for (Predmet p : predmety) {
             s = s + p.getNazev() + ", ";
         }
 
-        if (sloty.isEmpty() && karta == null) {
+        if (predmety.isEmpty() && karta == null) {
             s = s + "nic tu neni";
         }
 
@@ -59,7 +59,7 @@ public class InventarSpravce {
     }
 
     public Predmet getPredmet(String nazev) {
-        for (Predmet p : sloty) {
+        for (Predmet p : predmety) {
             if (p.getNazev().equalsIgnoreCase(nazev)) {
                 return p;
             }
@@ -75,11 +75,11 @@ public class InventarSpravce {
     }
 
     public boolean jeVolnySlot() {
-        return sloty.size() < kapacita;
+        return predmety.size() < kapacita;
     }
 
-    public List<Predmet> getSloty() {
-        return sloty;
+    public List<Predmet> getPredmety() {
+        return predmety;
     }
 
     public Karta getKarta() {

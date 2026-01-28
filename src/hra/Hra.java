@@ -62,14 +62,14 @@ public class Hra {
 
         Lokace lokace;
         switch (id) {
-            case "zacatecni": lokace = new Zacatecni(); break;
-            case "chodba": lokace = new Chodba(); break;
-            case "laborator": lokace = new Laborator(); break;
-            case "servis": lokace = new Servis(); break;
-            case "jidelna": lokace = new Jidelna(); break;
-            case "obytnyProstor": lokace = new ObytnyProstor(); break;
-            case "testovaci": lokace = new Testovaci(); break;
-            case "ridici": lokace = new Ridici(); break;
+            case "zacatecni": lokace = new Zacatecni(data); break;
+            case "chodba": lokace = new Chodba(data); break;
+            case "laborator": lokace = new Laborator(data); break;
+            case "servis": lokace = new Servis(data); break;
+            case "jidelna": lokace = new Jidelna(data); break;
+            case "obytnyProstor": lokace = new ObytnyProstor(data); break;
+            case "testovaci": lokace = new Testovaci(data); break;
+            case "ridici": lokace = new Ridici(data); break;
             default:
                 throw new IllegalArgumentException("Neznámá lokace: " + id);
         }

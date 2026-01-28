@@ -1,7 +1,9 @@
 package lokace;
 
+import hra.HraData;
+
 public class Zacatecni extends Lokace {
-    public Zacatecni() {
-        super("zacatecni");
+    public Zacatecni(HraData.LokaceData data) {
+        super(data.id, data.nazev, data.popis);
     }
 }

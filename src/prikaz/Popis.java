@@ -4,7 +4,7 @@ import hra.Hra;
 import lokace.Lokace;
 import predmety.Predmet;
 import postavy.Postava;
-import nepratel.Nepritel;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,7 +32,7 @@ public class Popis extends Prikaz {
             popisy.add(p.getPopis());
         }
 
-        for (Predmet p : hra.getInventar().getSloty()) {
+        for (Predmet p : hra.getInventar().getPredmety()) {
             volby.add("Inventář: " + p.getNazev());
             popisy.add(p.getPopis());
         }
