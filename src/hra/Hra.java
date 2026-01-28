@@ -1,7 +1,3 @@
-/*
-    Možná jsem to malinko přehnal
- */
-
 package hra;
 
 import hra.HraData.*;
@@ -30,7 +26,7 @@ public class Hra {
 
     public void start() {
         vytvorMapu();
-        Konzole konzole = new Konzole();
+        Konzole konzole = new Konzole(this);
         konzole.start();
         System.out.println(aktualniLokace.getPopis());
     }

@@ -6,7 +6,7 @@ public class Kamen extends Predmet {
     private int poskozeni;
 
     public Kamen(int bonusPoskozeni) {
-        super("kamen");
+        super("kamen","Kámen");
         this.poskozeni = bonusPoskozeni;
     }
 

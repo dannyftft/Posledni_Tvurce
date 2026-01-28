@@ -6,7 +6,7 @@ public class Jadro extends Predmet {
     private int bonusSila;
 
     public Jadro(int bonusSila) {
-        super("jadro");
+        super("jadro","Energetické jádro");
         this.bonusSila = bonusSila;
     }
 

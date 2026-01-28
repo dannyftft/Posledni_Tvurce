@@ -6,7 +6,7 @@ public class Deska extends Predmet {
     private int leceni;
 
     public Deska(int leceni) {
-        super("deska");
+        super("deska","Obvodová deska");
         this.leceni = leceni;
     }
 

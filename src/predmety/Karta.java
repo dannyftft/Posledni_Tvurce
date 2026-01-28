@@ -6,17 +6,13 @@ public class Karta extends Predmet {
     private int uroven;
 
     public Karta() {
-        super("karta");
-        this.uroven = 0; // možná lepší karta = nový předmět
+        super("karta","Přístupová karta");
+        this.uroven = 1;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        // Získá aktuální lokaci: hra.getAktualniLokace()
-        // Zkontroluje typ zámku lokace
-        // Porovná s úrovní karty
-        // Vrátí zprávu o úspěchu/neúspěchu
-        return "";
+        return "Karta se používá automaticky při otevírání dveří.";
     }
 
     @Override
@@ -30,10 +26,10 @@ public class Karta extends Predmet {
     }
 
     public void vylepsit() {
+        this.uroven = 2;
     }
 
     public int getUroven() {
-        // Vrátí 1 pokud základní, 2 pokud vylepšená
-        return 0;
+        return uroven;
     }
 }

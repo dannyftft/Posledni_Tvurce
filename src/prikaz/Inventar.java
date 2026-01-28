@@ -3,14 +3,14 @@ package prikaz;
 import hra.Hra;
 
 public class Inventar extends Prikaz {
+
     public Inventar(Hra hra) {
         super(hra);
     }
 
     @Override
     public String execute() {
-        //TODO zobrazí obsah inventáře
-        return null;
+        return hra.getInventar().vypisInventar();
     }
 
     @Override

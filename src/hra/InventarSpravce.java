@@ -15,27 +15,74 @@ public class InventarSpravce {
     }
 
     public boolean pridejPredmet(Predmet predmet) {
-        // Pokud je to Karta: uloží se do karta
-        // Jinak: zkontroluje zda sloty.size() < kapacita
-        // Pokud ano: pridá do sloty a vrátí true
-        // Pokud ne: vraťí false (plný inventář)
+        if (predmet.getId().equals("karta")) {
+            this.karta = (Karta) predmet;
+            return true;
+        }
+
+        if (!predmet.zabiraSlot()) {
+            return true;
+        }
+
+        if (sloty.size() < kapacita) {
+            sloty.add(predmet);
+            return true;
+        }
+
         return false;
     }
 
     public void odeberPredmet(Predmet predmet) {
-        // Odebere předmět ze sloty
-    }
-
-    public boolean obsahujePredmet(String nazev) {
-        return false;
+        sloty.remove(predmet);
+        if (predmet.getId().equals("karta")) {
+            karta = null;
+        }
     }
 
     public String vypisInventar() {
-        // Vrát seznam předmětů v inventáře
+        String s = "Inventář:\n";
+
+        if (karta != null) {
+            s = s + "Karta: " + karta.getNazev() + "\n";
+        }
+
+        s = s + "Veci: ";
+        for (Predmet p : sloty) {
+            s = s + p.getNazev() + ", ";
+        }
+
+        if (sloty.isEmpty() && karta == null) {
+            s = s + "nic tu neni";
+        }
+
+        return s;
+    }
+
+    public Predmet getPredmet(String nazev) {
+        for (Predmet p : sloty) {
+            if (p.getNazev().equalsIgnoreCase(nazev)) {
+                return p;
+            }
+        }
+        if (karta != null && karta.getNazev().equalsIgnoreCase(nazev)) {
+            return karta;
+        }
         return null;
     }
 
+    public boolean obsahujePredmet(String nazev) {
+        return getPredmet(nazev) != null;
+    }
+
     public boolean jeVolnySlot() {
-        return false;
+        return sloty.size() < kapacita;
+    }
+
+    public List<Predmet> getSloty() {
+        return sloty;
+    }
+
+    public Karta getKarta() {
+        return karta;
     }
 }

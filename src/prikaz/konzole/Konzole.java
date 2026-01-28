@@ -12,8 +12,9 @@ public class Konzole {
     private HashMap<String, Prikaz> mapa = new HashMap<>();
     private Scanner scanner = new Scanner(System.in);
 
-    public Konzole (){
+    public Konzole (Hra hra){
         this.hra = hra;
+        this.scanner = new Scanner(System.in);
         inicializace();
     }
 

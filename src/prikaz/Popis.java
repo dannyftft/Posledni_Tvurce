@@ -1,15 +1,77 @@
 package prikaz;
 
 import hra.Hra;
+import lokace.Lokace;
+import predmety.Predmet;
+import postavy.Postava;
+import nepratel.Nepritel;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Popis extends Prikaz {
-    public Popis (Hra hra){
+    private Scanner scanner;
+
+    public Popis(Hra hra) {
         super(hra);
+        this.scanner = new Scanner(System.in);
     }
 
     @Override
     public String execute() {
-        return hra.getAktualniLokace().getPopis();
+        Lokace lok = hra.getAktualniLokace();
+
+        List<String> volby = new ArrayList<>();
+        List<String> popisy = new ArrayList<>();
+
+        volby.add("Místnost");
+        popisy.add(lok.getPopis());
+
+        for (Predmet p : lok.getPredmety()) {
+            volby.add("Předmět: " + p.getNazev());
+            popisy.add(p.getPopis());
+        }
+
+        for (Predmet p : hra.getInventar().getSloty()) {
+            volby.add("Inventář: " + p.getNazev());
+            popisy.add(p.getPopis());
+        }
+
+        if (hra.getInventar().getKarta() != null) {
+            volby.add("Inventář: " + hra.getInventar().getKarta().getNazev());
+            popisy.add(hra.getInventar().getKarta().getPopis());
+        }
+
+        for (Postava p : lok.getPostavy()) {
+            volby.add("Postava: " + p.getJmeno());
+            popisy.add(p.getPopis());
+        }
+        /*
+        třída pro nepřítele není hotová
+        for (Nepritel n : lok.getNepratelove()) {
+            volby.add("Nepřítel: " + n.getNazev());
+            popisy.add(n.getPopis());
+        }
+         */
+
+        System.out.println("Co chceš prozkoumat?");
+        for (int i = 0; i < volby.size(); i++) {
+            System.out.println((i + 1) + ". " + volby.get(i));
+        }
+
+        System.out.print("\n>> ");
+        String vstup = scanner.nextLine().trim();
+
+        try {
+            int volba = Integer.parseInt(vstup) - 1;
+            if (volba >= 0 && volba < popisy.size()) {
+                return "\n" + popisy.get(volba);
+            } else {
+                return "Neplatná volba.";
+            }
+        } catch (NumberFormatException e) {
+            return "Zadej číslo.";
+        }
     }
 
     @Override

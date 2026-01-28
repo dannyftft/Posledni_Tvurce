@@ -6,7 +6,7 @@ public class Trubka extends Predmet {
     private int bonusSila;
 
     public Trubka(int bonusPoskozeni) {
-        super("trubka");
+        super("trubka","Kovová trubka");
         this.bonusSila = bonusPoskozeni;
     }
 
