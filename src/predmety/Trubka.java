@@ -5,18 +5,15 @@ import hra.Hra;
 public class Trubka extends Predmet {
     private int bonusSila;
 
-    public Trubka(int bonusPoskozeni) {
-        super("trubka","Kovová trubka");
-        this.bonusSila = bonusPoskozeni;
+    public Trubka(String id, String nazev, int bonusSila) {
+        super(id);
+        this.nazev = nazev;
+        this.bonusSila = bonusSila;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        // Zkontroluje, zda probíhá souboj
-        // Pokud ano: přidá/vynásobí bonusSila k útoku hráče
-        // Pokud ne: vrátí něco jako; Nejde ted použít zbraň
-        // Vrátí zprávu
-        return "";
+        return "Trubka se používá jen v boji.";
     }
 
     @Override
@@ -27,5 +24,9 @@ public class Trubka extends Predmet {
     @Override
     public boolean zabiraSlot() {
         return true;
+    }
+
+    public int getBonusSila() {
+        return bonusSila;
     }
 }

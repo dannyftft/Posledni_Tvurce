@@ -4,7 +4,6 @@ public class Hrac {
 
     private int zdravi;
     private int maxZdravi;
-    private int sila;
     private int utok;
 
     public void zran(int hodnota) {
@@ -22,7 +21,6 @@ public class Hrac {
     }
 
     public void zvysSilu(int hodnota) {
-        this.sila += hodnota;
         this.utok += hodnota;
     }
 
@@ -42,20 +40,12 @@ public class Hrac {
         return maxZdravi;
     }
 
-    public int getSila() {
-        return sila;
-    }
-
     public void setZdravi(int zdravi) {
         this.zdravi = zdravi;
     }
 
     public void setMaxZdravi(int maxZdravi) {
         this.maxZdravi = maxZdravi;
-    }
-
-    public void setSila(int sila) {
-        this.sila = sila;
     }
 
     public void setUtok(int utok) {

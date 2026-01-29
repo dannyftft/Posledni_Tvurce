@@ -36,15 +36,6 @@ public class Prohledej extends Prikaz {
             }
         }
 
-        /*
-        if (!lokace.getNepratelove().isEmpty()) {
-            s = s + "NEPRATELE: ";
-            for (Nepritel n : lokace.getNepratelove()) {
-                s = s + n.getJmeno() + " ";
-            }
-            s = s + "\n";
-        }
-         */
         return s;
     }
 

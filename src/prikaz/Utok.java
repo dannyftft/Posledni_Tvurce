@@ -1,6 +1,7 @@
 package prikaz;
 
 import hra.Hra;
+import nepratel.Nepritel;
 
 public class Utok extends Prikaz {
     public Utok(Hra hra) {
@@ -9,7 +10,22 @@ public class Utok extends Prikaz {
 
     @Override
     public String execute() {
-        return null;
+        if (!hra.getBojovyManager().jeSouboj()) {
+            return "Nyní neprobíhá souboj.";
+        }
+
+        String vysledek = hra.getBojovyManager().provedTah();
+        Nepritel aktualniNepritel = hra.getBojovyManager().getNepritel();
+
+        if (aktualniNepritel != null && aktualniNepritel.jePorazen()) {
+            vysledek += hra.getBojovyManager().kontrolaDalsichNepratel(hra);
+        }
+
+        if (!hra.getHrac().jeNazivu()) {
+            hra.setKonec(true);
+        }
+
+        return vysledek;
     }
 
     @Override

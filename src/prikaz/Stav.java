@@ -14,7 +14,6 @@ public class Stav extends Prikaz {
         Hrac h = hra.getHrac();
         return "Stav:\n" +
                 "Zdraví: " + h.getZdravi() + "/" + h.getMaxZdravi() + "\n" +
-                "Síla: " + h.getSila() + "\n" +
                 "Útok: " + h.getUtok();
     }
 

@@ -5,18 +5,15 @@ import hra.Hra;
 public class Jadro extends Predmet {
     private int bonusSila;
 
-    public Jadro(int bonusSila) {
-        super("jadro","Energetické jádro");
+    public Jadro(String id, String nazev, int bonusSila) {
+        super(id);
+        this.nazev = nazev;
         this.bonusSila = bonusSila;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        // Nabídne volbu:
-        // Co chcete udělat s energetickým jádrem?
-        // 1. Použít pro zvýšení vlastní síly
-        // 2. Opravit robota v místnosti (pokud ve správné lokace)
-        return "";
+        return "Energetické jádro se používá pro zvýšení síly nebo opravu robota.";
     }
 
     @Override
@@ -27,5 +24,9 @@ public class Jadro extends Predmet {
     @Override
     public boolean zabiraSlot() {
         return true;
+    }
+
+    public int getBonusSila() {
+        return bonusSila;
     }
 }

@@ -8,22 +8,14 @@ public abstract class Predmet {
     protected String nazev;
     protected String popis;
 
-    public Predmet(String id, String nazev) {
+    public Predmet(String id) {
         this.id = id;
-        this.nazev = nazev;
-        this.popis = "";
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void nastavPopis(String popis) {
-        this.popis = popis;
     }
 
     public abstract String pouzit(Hra hra);
+
     public abstract boolean jeSpotrebovatelny();
+
     public abstract boolean zabiraSlot();
 
     public String getNazev() {
@@ -32,5 +24,13 @@ public abstract class Predmet {
 
     public String getPopis() {
         return popis;
+    }
+
+    public void nastavPopis(String popis) {
+        this.popis = popis;
+    }
+
+    public String getId() {
+        return id;
     }
 }

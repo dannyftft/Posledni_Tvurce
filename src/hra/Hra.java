@@ -2,11 +2,13 @@ package hra;
 
 import hra.HraData.*;
 import lokace.*;
+import nepratel.Robot;
 import predmety.*;
 import postavy.*;
 import nepratel.*;
 import prikaz.konzole.Konzole;
 
+import java.awt.*;
 import java.util.*;
 
 public class Hra {
@@ -37,7 +39,6 @@ public class Hra {
         // Nastaví statistiky hráče
         hrac.setMaxZdravi(hraData.hrac.max_zdravi);
         hrac.setZdravi(hraData.hrac.max_zdravi);
-        hrac.setSila(hraData.hrac.sila);
         hrac.setUtok(hraData.hrac.utok);
 
         // Vytvoří všechny lokace
@@ -137,11 +138,11 @@ public class Hra {
 
         Predmet p = null;
         switch (id) {
-            case "deska": p = new Deska(data.leceni); break;
-            case "jadro": p = new Jadro(data.bonus_sila); break;
-            case "kamen": p = new Kamen(data.poskozeni); break;
-            case "karta": p = new Karta(); break;
-            case "trubka": p = new Trubka(data.bonus_sila); break;
+            case "deska": p = new Deska(data.id, data.nazev, data.leceni); break;
+            case "jadro": p = new Jadro(data.id, data.nazev, data.bonus_sila); break;
+            case "kamen": p = new Kamen(data.id, data.nazev, data.poskozeni); break;
+            case "karta": p = new Karta(data.id, data.nazev); break;
+            case "trubka": p = new Trubka(data.id, data.nazev, data.bonus_sila); break;
         }
 
         if (p != null) {
@@ -165,12 +166,17 @@ public class Hra {
         NepritelData data = hraData.najdiNepritele(id);
         if (data == null) return null;
 
+        Nepritel n = null;
         switch (id) {
-            case "robot": return new Robot(data.zdravi, data.utok);
-            case "dron": return new Dron(data.zdravi, data.utok);
-            case "mech": return new Mech(data.zdravi, data.utok);
-            default: return null;
+            case "robot": n = new Robot(data.id, data.nazev, data.zdravi, data.utok); break;
+            case "dron": n = new Dron(data.id, data.nazev, data.zdravi, data.utok); break;
+            case "mech": n = new Mech(data.id, data.nazev, data.zdravi, data.utok); break;
         }
+
+        if (n != null) {
+            n.setPopis(data.popis);
+        }
+        return n;
     }
 
     public void ZmenaLokace(Lokace novaLokace) {

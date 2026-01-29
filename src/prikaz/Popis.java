@@ -46,20 +46,13 @@ public class Popis extends Prikaz {
             volby.add("Postava: " + p.getJmeno());
             popisy.add(p.getPopis());
         }
-        /*
-        třída pro nepřítele není hotová
-        for (Nepritel n : lok.getNepratelove()) {
-            volby.add("Nepřítel: " + n.getNazev());
-            popisy.add(n.getPopis());
-        }
-         */
 
         System.out.println("Co chceš prozkoumat?");
         for (int i = 0; i < volby.size(); i++) {
             System.out.println((i + 1) + ". " + volby.get(i));
         }
 
-        System.out.print("\n>> ");
+        System.out.print(">> ");
         String vstup = scanner.nextLine().trim();
 
         try {

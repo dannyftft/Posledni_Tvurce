@@ -1,30 +1,54 @@
 package nepratel;
 
-import hra.Hrac;
-
 public abstract class Nepritel {
+    protected String id;
     protected String nazev;
     protected String popis;
     protected int zdravi;
     protected int utok;
 
-    public Nepritel(String nazev, int zdravi, int utok) {
+    public Nepritel(String id, String nazev, int zdravi, int utok) {
+        this.id = id;
         this.nazev = nazev;
         this.zdravi = zdravi;
         this.utok = utok;
     }
 
     public void poskozeni(int poskozeni) {
-        // Odečte poskozeni od zdravi
+        this.zdravi -= poskozeni;
+        if (this.zdravi < 0) {
+            this.zdravi = 0;
+        }
     }
 
     public boolean jePorazen() {
-        // Vrátí true pokud je zdravi menší než 0
-        return false;
+        return zdravi <= 0;
     }
 
     public String zobrazStav() {
-        // Vrátí zdravi
-        return "";
+        return nazev + " - Zdraví: " + zdravi;
     }
-} //TODO musím zajistit že poškození a zdraví bude vyrovnaný s tím co má hráč
+
+    public int getUtok() {
+        return utok;
+    }
+
+    public int getZdravi() {
+        return zdravi;
+    }
+
+    public String getNazev() {
+        return nazev;
+    }
+
+    public String getPopis() {
+        return popis;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setPopis(String popis) {
+        this.popis = popis;
+    }
+}

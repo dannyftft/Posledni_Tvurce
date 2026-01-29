@@ -5,23 +5,15 @@ import hra.Hra;
 public class Kamen extends Predmet {
     private int poskozeni;
 
-    public Kamen(int bonusPoskozeni) {
-        super("kamen","Kámen");
-        this.poskozeni = bonusPoskozeni;
+    public Kamen(String id, String nazev, int poskozeni) {
+        super(id);
+        this.nazev = nazev;
+        this.poskozeni = poskozeni;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        /*
-        Zkontroluje zda probíhá souboj
-           Pokud ne: vrátí zprávu že nemůže
-           Pokud ano:
-              Získá typ nepřítele
-              Pokud je Dron: způsobí vetši poškození třeba: poskozeni*2
-              Jinak způsobí normální poskozeni
-         Vrátí zprávu o výsledku
-          */
-        return "";
+        return "Kámen se používá jen v boji ";
     }
 
     @Override
@@ -32,5 +24,9 @@ public class Kamen extends Predmet {
     @Override
     public boolean zabiraSlot() {
         return true;
+    }
+
+    public int getPoskozeni() {
+        return poskozeni;
     }
 }

@@ -5,15 +5,16 @@ import hra.Hra;
 public class Deska extends Predmet {
     private int leceni;
 
-    public Deska(int leceni) {
-        super("deska","Obvodová deska");
+    public Deska(String id, String nazev, int leceni) {
+        super(id);
+        this.nazev = nazev;
         this.leceni = leceni;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        // Obnoví zdraví hráče
-        return "";
+        hra.getHrac().vylec(leceni);
+        return "Použil jsi " + nazev + " a vyléčil ses o " + leceni + " HP.";
     }
 
     @Override

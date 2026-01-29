@@ -5,8 +5,9 @@ import hra.Hra;
 public class Karta extends Predmet {
     private int uroven;
 
-    public Karta() {
-        super("karta","Přístupová karta");
+    public Karta(String id, String nazev) {
+        super(id);
+        this.nazev = nazev;
         this.uroven = 1;
     }
 

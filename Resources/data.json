@@ -1,8 +1,7 @@
 {
   "hrac": {
     "max_zdravi": 100,
-    "sila": 15,
-    "utok": 15
+    "utok": 10
   },
   "lokace": [
     {
@@ -63,7 +62,7 @@
       "popis": "Opuštěná jídelna s převrženým nábytkem. Připomíná místo, kde kdysi někdo skutečně žil.",
       "dalsi": "obytnyProstor",
       "predchozi": "servis",
-      "muzuZpet": true,
+      "muzuZpet": false,
       "zamcena": false,
       "pozadovana_uroven_karty": 1,
       "predmety": ["trubka", "deska"],
@@ -131,7 +130,7 @@
       "id": "kamen",
       "nazev": "Kámen",
       "popis": "Jednoduchý improvizovaný projektil. Překvapivě účinný proti dronům.",
-      "poskozeni": 10,
+      "poskozeni": 15,
       "spotrebovatelny": true,
       "zabira_slot": true
     },
@@ -172,21 +171,21 @@
       "nazev": "Poškozený humanoidní robot",
       "popis": "Starší humanoidní strážní jednotka s omezenou pohyblivostí.",
       "utok": 5,
-      "zdravi": 30
+      "zdravi": 40
     },
     {
       "id": "dron",
       "nazev": "Poškozený dron se zbraní",
       "popis": "Létající bezpečnostní jednotka vybavená jednoduchou zbraní.",
       "utok": 5,
-      "zdravi": 20
+      "zdravi": 30
     },
     {
       "id": "mech",
       "nazev": "Testovací mech",
       "popis": "Obří bojová jednotka přímo ovládaná Aurorou.",
       "utok": 20,
-      "zdravi": 300
+      "zdravi": 100
     }
   ]
 }

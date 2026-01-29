@@ -39,11 +39,15 @@ public class Konzole {
         System.out.print(">>");
         String prikaz = scanner.next();
         prikaz = prikaz.trim().toLowerCase();
+        if (hra.getBojovyManager().jeSouboj() && !prikaz.equals("utok") && !prikaz.equals("utek") && !prikaz.equals("stav") && !prikaz.equals("konec")) {
+            System.out.println("Probíhá souboj! Můžeš použít pouze: utok, utek, stav");
+            return;
+        }
         if (mapa.containsKey(prikaz)) {
-            System.out.println(">> " + mapa.get(prikaz).execute());
+            System.out.println(mapa.get(prikaz).execute());
             exit = mapa.get(prikaz).exit();
         } else {
-            System.out.println(">> Nedefinovany prikaz");
+            System.out.println(">> Nedefinovany prikaz zadej 'pomoc' pro seznam příkazů");
         }
     }
 
