@@ -1,5 +1,7 @@
 package nepratel;
 
+import hra.HraData;
+
 public abstract class Nepritel {
     protected String id;
     protected String nazev;
@@ -7,11 +9,11 @@ public abstract class Nepritel {
     protected int zdravi;
     protected int utok;
 
-    public Nepritel(String id, String nazev, int zdravi, int utok) {
-        this.id = id;
-        this.nazev = nazev;
-        this.zdravi = zdravi;
-        this.utok = utok;
+    public Nepritel(HraData.NepritelData data) {
+        this.id = data.id;
+        this.nazev = data.nazev;
+        this.zdravi = data.zdravi;
+        this.utok = data.utok;
     }
 
     public void poskozeni(int poskozeni) {

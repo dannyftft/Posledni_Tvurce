@@ -1,29 +1,20 @@
 package predmety;
 
 import hra.Hra;
+import hra.HraData;
 
 public class Trubka extends Predmet {
-    private int bonusSila;
 
-    public Trubka(String id, String nazev, int bonusSila) {
-        super(id);
-        this.nazev = nazev;
-        this.bonusSila = bonusSila;
+    private final int bonusSila;
+
+    public Trubka(HraData.PredmetData data) {
+        super(data);
+        this.bonusSila = data.bonus_sila;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        return "Trubka se používá jen v boji.";
-    }
-
-    @Override
-    public boolean jeSpotrebovatelny() {
-        return false;
-    }
-
-    @Override
-    public boolean zabiraSlot() {
-        return true;
+        return "Trubka se používá automaticky v boji.";
     }
 
     public int getBonusSila() {

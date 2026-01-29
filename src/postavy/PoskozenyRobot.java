@@ -1,11 +1,12 @@
 package postavy;
 
-public class PoskozenyRobot extends Postava {
-    private boolean opraven;
+import hra.HraData;
 
-    public PoskozenyRobot() {
-        super("poskozenyRobot");
-        this.opraven = false;
+public class PoskozenyRobot extends Postava {
+
+    public PoskozenyRobot(HraData.PostavaData data) {
+        super(data);
+
     }
 
     @Override
@@ -30,6 +31,6 @@ public class PoskozenyRobot extends Postava {
     }
 
     public void opravit() {
-        // Nastaví opraven na true pokud hráč použije Energetické Jádro
+        opraven = true;
     }
 }

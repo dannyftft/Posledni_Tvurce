@@ -8,7 +8,6 @@ import postavy.*;
 import nepratel.*;
 import prikaz.konzole.Konzole;
 
-import java.awt.*;
 import java.util.*;
 
 public class Hra {
@@ -122,7 +121,7 @@ public class Hra {
             }
 
             if (lokaceData.nepratelove != null) {
-                for (String nepritelId : lokaceData.nepratelove) {
+                for (Nepritel nepritelId : lokaceData.nepratelove) {
                     Nepritel nepritel = vytvorNepritele(nepritelId);
                     if (nepritel != null) {
                         lokace.pridejNepritele(nepritel);
@@ -138,11 +137,11 @@ public class Hra {
 
         Predmet p = null;
         switch (id) {
-            case "deska": p = new Deska(data.id, data.nazev, data.leceni); break;
-            case "jadro": p = new Jadro(data.id, data.nazev, data.bonus_sila); break;
-            case "kamen": p = new Kamen(data.id, data.nazev, data.poskozeni); break;
-            case "karta": p = new Karta(data.id, data.nazev); break;
-            case "trubka": p = new Trubka(data.id, data.nazev, data.bonus_sila); break;
+            case "deska": p = new Deska(data);break;
+            case "jadro": p = new Jadro(data);break;
+            case "kamen": p = new Kamen(data);break;
+            case "karta": p = new Karta(data);break;
+            case "trubka": p = new Trubka(data);break;
         }
 
         if (p != null) {
@@ -156,21 +155,21 @@ public class Hra {
         if (data == null) return null;
 
         switch (id) {
-            case "aurora": return new Aurora();
-            case "poskozenyRobot": return new PoskozenyRobot();
+            case "aurora": return new Aurora(data);
+            case "poskozenyRobot": return new PoskozenyRobot(data);
             default: return null;
         }
     }
 
-    private Nepritel vytvorNepritele(String id) {
+    private Nepritel vytvorNepritele(Nepritel id) {
         NepritelData data = hraData.najdiNepritele(id);
         if (data == null) return null;
 
         Nepritel n = null;
         switch (id) {
-            case "robot": n = new Robot(data.id, data.nazev, data.zdravi, data.utok); break;
-            case "dron": n = new Dron(data.id, data.nazev, data.zdravi, data.utok); break;
-            case "mech": n = new Mech(data.id, data.nazev, data.zdravi, data.utok); break;
+            case "robot": n = new Robot(data); break;
+            case "dron": n = new Dron(data); break;
+            case "mech": n = new Mech(data); break;
         }
 
         if (n != null) {

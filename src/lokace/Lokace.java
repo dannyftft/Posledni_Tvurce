@@ -1,5 +1,6 @@
 package lokace;
 
+import hra.HraData;
 import predmety.Predmet;
 import postavy.Postava;
 import nepratel.Nepritel;
@@ -13,18 +14,21 @@ public abstract class Lokace {
     protected List<Lokace> sousedniLokace;
     protected List<Predmet> predmety;
     protected List<Postava> postavy;
-    protected List<Nepritel> nepratelove;
+    protected ArrayList<Nepritel> nepratelove;
     protected boolean zamcena;
     protected int pozadovanaUrovenKarty;
 
-    public Lokace(String id,String nazev, String popis) {
-        this.id = id;
-        this.nazev = nazev;
-        this.popis = popis;
+    public Lokace(HraData.LokaceData data) {
+        this.id = data.id;
+        this.nazev = data.nazev;
+        this.popis = data.popis;
+        this.nepratelove = data.nepratelove;
+        this.pozadovanaUrovenKarty = data.pozadovana_uroven_karty;
+        this.zamcena = data.zamcena;
         this.sousedniLokace = new ArrayList<>();
         this.predmety = new ArrayList<>();
         this.postavy = new ArrayList<>();
-        this.nepratelove = new ArrayList<>();
+
     }
 
     public void pridejPropojeni(Lokace lokace) {
@@ -79,7 +83,7 @@ public abstract class Lokace {
         return postavy;
     }
 
-    public List<Nepritel> getNepratelove() {
+    public ArrayList<Nepritel> getNepratelove() {
         return nepratelove;
     }
 

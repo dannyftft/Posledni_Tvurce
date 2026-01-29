@@ -1,29 +1,20 @@
 package predmety;
 
 import hra.Hra;
+import hra.HraData;
 
 public class Kamen extends Predmet {
-    private int poskozeni;
 
-    public Kamen(String id, String nazev, int poskozeni) {
-        super(id);
-        this.nazev = nazev;
-        this.poskozeni = poskozeni;
+    private final int poskozeni;
+
+    public Kamen(HraData.PredmetData data) {
+        super(data);
+        this.poskozeni = data.poskozeni;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        return "Kámen se používá jen v boji ";
-    }
-
-    @Override
-    public boolean jeSpotrebovatelny() {
-        return true;
-    }
-
-    @Override
-    public boolean zabiraSlot() {
-        return true;
+        return "Kámen lze použít pouze v boji.";
     }
 
     public int getPoskozeni() {

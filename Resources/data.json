@@ -13,7 +13,7 @@
       "muzuZpet": false,
       "zamcena": false,
       "pozadovana_uroven_karty": 0,
-      "predmety": ["kamen"],
+      "predmety": ["kamen","deska"],
       "nepratelove": [],
       "postavy": ["aurora"]
     },
@@ -161,7 +161,7 @@
     {
       "id": "aurora",
       "nazev": "Aurora",
-      "popis": "Umělá inteligence. Sleduje tě a komentuje každý tvůj krok.",
+      "popis": "Umělá inteligence.",
       "aktivni": true
     }
   ],

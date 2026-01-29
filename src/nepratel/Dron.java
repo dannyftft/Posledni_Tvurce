@@ -1,7 +1,9 @@
 package nepratel;
 
+import hra.HraData;
+
 public class Dron extends Nepritel {
-    public Dron(String id, String nazev, int zdravi, int utok) {
-        super(id, nazev, zdravi, utok);
+    public Dron(HraData.NepritelData data) {
+        super(data);
     }
 }

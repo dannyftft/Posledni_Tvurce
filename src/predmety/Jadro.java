@@ -1,32 +1,50 @@
 package predmety;
 
 import hra.Hra;
+import hra.HraData;
+import postavy.PoskozenyRobot;
+import postavy.Postava;
+import java.util.Scanner;
 
 public class Jadro extends Predmet {
-    private int bonusSila;
 
-    public Jadro(String id, String nazev, int bonusSila) {
-        super(id);
-        this.nazev = nazev;
-        this.bonusSila = bonusSila;
+    private final int bonusSila;
+
+    public Jadro(HraData.PredmetData data) {
+        super(data);
+        this.bonusSila = data.bonus_sila;
     }
 
     @Override
     public String pouzit(Hra hra) {
-        return "Energetické jádro se používá pro zvýšení síly nebo opravu robota.";
-    }
+        Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public boolean jeSpotrebovatelny() {
-        return true;
-    }
+        System.out.println("Co chceš udělat s energetickým jádrem?");
+        System.out.println("1. Použít pro zvýšení vlastní síly");
 
-    @Override
-    public boolean zabiraSlot() {
-        return true;
-    }
+        PoskozenyRobot robot = null;
+        for (Postava p : hra.getAktualniLokace().getPostavy()) {
+            if (p.getId().equals("poskozenyRobot")) {
+                robot = (PoskozenyRobot) p;
+                if (!robot.muzeMluvit()) {
+                    System.out.println("2. Opravit robota v místnosti");
+                    break;
+                }
+            }
+        }
 
-    public int getBonusSila() {
-        return bonusSila;
+        System.out.print("\nVolba: ");
+        int volba = scanner.nextInt();
+        scanner.nextLine();
+
+        if (volba == 1) {
+            hra.getHrac().zvysSilu(bonusSila);
+            return "Použil jsi energetické jádro a zvýšil svou sílu o " + bonusSila + "\nNový útok: " + hra.getHrac().getUtok();
+        } else if (volba == 2 && robot != null && !robot.muzeMluvit()) {
+            robot.opravit();
+            return "Opravil jsi robota! Nyní s ním můžeš mluvit a dozvědět se více o minulosti.";
+        }
+
+        return "Neplatná volba. Jádro nebylo použito.";
     }
 }

@@ -4,6 +4,6 @@ import hra.HraData;
 
 public class Jidelna extends Lokace {
     public Jidelna(HraData.LokaceData data) {
-        super(data.id, data.nazev, data.popis);
+        super(data);
     }
 }

@@ -1,6 +1,8 @@
 package hra;
 
 import com.google.gson.Gson;
+import nepratel.Nepritel;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -62,7 +64,7 @@ public class HraData {
         return null;
     }
 
-    public NepritelData najdiNepritele(String id) {
+    public NepritelData najdiNepritele(Nepritel id) {
         for (NepritelData n : nepratelove) {
             if (n.id.equals(id)) {
                 return n;
@@ -87,7 +89,7 @@ public class HraData {
         public boolean zamcena;
         public int pozadovana_uroven_karty;
         public ArrayList<String> predmety;
-        public ArrayList<String> nepratelove;
+        public ArrayList<Nepritel> nepratelove;
         public ArrayList<String> postavy;
     }
 

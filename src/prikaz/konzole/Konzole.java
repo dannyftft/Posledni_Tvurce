@@ -37,9 +37,8 @@ public class Konzole {
 
     private void proved() {
         System.out.print(">>");
-        String prikaz = scanner.next();
-        prikaz = prikaz.trim().toLowerCase();
-        if (hra.getBojovyManager().jeSouboj() && !prikaz.equals("utok") && !prikaz.equals("utek") && !prikaz.equals("stav") && !prikaz.equals("konec")) {
+        String prikaz = scanner.nextLine().trim().toLowerCase();
+        if (hra.getBojovyManager().jeSouboj() && !prikaz.equals("utok") && !prikaz.equals("utek") && !prikaz.equals("stav") && !prikaz.equals("konec") && !prikaz.equals("inventar")) {
             System.out.println("Probíhá souboj! Můžeš použít pouze: utok, utek, stav");
             return;
         }

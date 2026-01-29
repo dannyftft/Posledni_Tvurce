@@ -1,29 +1,20 @@
 package predmety;
 
 import hra.Hra;
+import hra.HraData;
 
 public class Deska extends Predmet {
-    private int leceni;
 
-    public Deska(String id, String nazev, int leceni) {
-        super(id);
-        this.nazev = nazev;
-        this.leceni = leceni;
+    private final int leceni;
+
+    public Deska(HraData.PredmetData data) {
+        super(data);
+        this.leceni = data.leceni;
     }
 
     @Override
     public String pouzit(Hra hra) {
         hra.getHrac().vylec(leceni);
-        return "Použil jsi " + nazev + " a vyléčil ses o " + leceni + " HP.";
-    }
-
-    @Override
-    public boolean jeSpotrebovatelny() {
-        return true;
-    }
-
-    @Override
-    public boolean zabiraSlot() {
-        return true;
+        return "Použil jsi obvodovou desku. Obnoveno " + leceni + " HP.";
     }
 }

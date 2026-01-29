@@ -1,17 +1,18 @@
 package postavy;
 
+import hra.HraData;
 
 public abstract class Postava {
-    protected String jmeno;
+    protected String id;
+    protected String nazev;
     protected String popis;
+    protected boolean opraven;
 
-    public Postava(String jmeno) {
-        this.jmeno = jmeno;
-        nactiPopis();
-    }
-
-    protected void nactiPopis() {
-        // this.popis = načtené ze souboru
+    public Postava(HraData.PostavaData data) {
+        this.id = data.id;
+        this.nazev = data.nazev;
+        this.popis = data.popis;
+        this.opraven = data.opraven;
     }
 
     public abstract String[] getDialogVolby();
@@ -19,14 +20,16 @@ public abstract class Postava {
     public abstract String getDialogOdpoved(int cisloVolby);
 
     public abstract boolean muzeMluvit();
-    // Vrátí pokud s postavou lze ted mluvit
 
     public String getJmeno() {
-        return this.jmeno;
+        return this.nazev;
     }
 
     public String getPopis() {
-        //vrátí načtený popis
         return this.popis;
+    }
+
+    public String getId() {
+        return this.id;
     }
 }

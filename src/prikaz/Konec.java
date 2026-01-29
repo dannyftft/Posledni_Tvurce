@@ -9,7 +9,7 @@ public class Konec extends Prikaz {
 
     @Override
     public String execute() {
-        return null;
+        return "Hra se úspěšně ukončila.";
     }
 
     @Override

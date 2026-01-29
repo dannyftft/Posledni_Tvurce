@@ -1,14 +1,12 @@
 package predmety;
 
 import hra.Hra;
+import hra.HraData;
 
 public class Karta extends Predmet {
-    private int uroven;
 
-    public Karta(String id, String nazev) {
-        super(id);
-        this.nazev = nazev;
-        this.uroven = 1;
+    public Karta(HraData.PredmetData data) {
+        super(data);
     }
 
     @Override
@@ -16,21 +14,7 @@ public class Karta extends Predmet {
         return "Karta se používá automaticky při otevírání dveří.";
     }
 
-    @Override
-    public boolean jeSpotrebovatelny() {
-        return false;
-    }
-
-    @Override
-    public boolean zabiraSlot() {
-        return false;
-    }
-
     public void vylepsit() {
-        this.uroven = 2;
-    }
-
-    public int getUroven() {
-        return uroven;
+        uroven++;
     }
 }

@@ -1,7 +1,10 @@
 package nepratel;
 
+
+import hra.HraData;
+
 public class Robot extends Nepritel {
-    public Robot(String id, String nazev, int zdravi, int utok) {
-        super(id, nazev, zdravi, utok);
+    public Robot(HraData.NepritelData data) {
+        super(data);
     }
 }
