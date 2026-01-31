@@ -10,17 +10,22 @@ public class PoskozenyRobot extends Postava {
     }
 
     @Override
-    public String[] getDialogVolby() {
+    public String[] getDialogVolby(String lokace) {
         // Pokud neporavený nečte malý text o tom jak není opravený možná z Recources.postavy.txt nebo univerzální error soubor
         // Pokud opraven: načte z Resources/postavy.txt
         return new String[0];
     }
 
     @Override
-    public String getDialogOdpoved(int cisloVolby) {
+    public String getDialogOdpoved(String lokace, int cisloVolby) {
         // Pokud neoporavený nečte malý text o tom jak není opravený možná z Recources.postavy.txt nebo univerzální error soubor
         // Pokud opraven: načte z Resources/postavy.txt
         // Obsahuje lore o minulosti komplexu btw
+        return "";
+    }
+
+    @Override
+    public String getUvodniDialog(String lokace) {
         return "";
     }
 

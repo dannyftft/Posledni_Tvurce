@@ -64,7 +64,7 @@ public class HraData {
         return null;
     }
 
-    public NepritelData najdiNepritele(Nepritel id) {
+    public NepritelData najdiNepritele(String id) {
         for (NepritelData n : nepratelove) {
             if (n.id.equals(id)) {
                 return n;
@@ -72,6 +72,7 @@ public class HraData {
         }
         return null;
     }
+
 
     public static class HracData {
         public int max_zdravi;
@@ -89,7 +90,7 @@ public class HraData {
         public boolean zamcena;
         public int pozadovana_uroven_karty;
         public ArrayList<String> predmety;
-        public ArrayList<Nepritel> nepratelove;
+        public ArrayList<String> nepratelove;
         public ArrayList<String> postavy;
     }
 

@@ -14,6 +14,7 @@ public abstract class Nepritel {
         this.nazev = data.nazev;
         this.zdravi = data.zdravi;
         this.utok = data.utok;
+        this.popis = data.popis;
     }
 
     public void poskozeni(int poskozeni) {
@@ -50,7 +51,7 @@ public abstract class Nepritel {
         return id;
     }
 
-    public void setPopis(String popis) {
+    public void nastavPopis(String popis) {
         this.popis = popis;
     }
 }

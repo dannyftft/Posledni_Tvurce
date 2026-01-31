@@ -10,12 +10,11 @@ public class BojovyManager {
     private Hrac hrac;
     private Nepritel nepritel;
     private boolean jeSouboj;
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
     private InventarSpravce inventar;
 
     public BojovyManager() {
         this.jeSouboj = false;
-        this.scanner = new Scanner(System.in);
     }
 
     public void ZacniSouboj(Hrac hrac, Nepritel nepritel, InventarSpravce inventar) {
@@ -25,6 +24,7 @@ public class BojovyManager {
         this.jeSouboj = true;
     }
 
+    // Hlavní menu souboje
     public String provedTah() {
         if (!jeSouboj) {
             return "";
@@ -38,6 +38,8 @@ public class BojovyManager {
         Trubka trubka = null;
         Kamen kamen = null;
 
+        // Projde inventář a zjistí jestli je Trubku nebo Kámen
+        // Nebude fungovat pokud přidám nový předmět pro boj
         for (Predmet p : inventar.getPredmety()) {
             if (p.getId().equals("trubka")) {
                 trubka = (Trubka) p;
@@ -59,6 +61,7 @@ public class BojovyManager {
         Predmet pouzityPredmet = null;
 
         //malinko blbý ale funguje pokud hráč má jenom kamen bude jako druhá volba pokud má kámen a trubku kámen bude na třetím místě
+        // Spočítání sílu útoku
         if (volba == 1) {
             bonusUtok = 0;
         } else if (volba == 2 && trubka != null) {
@@ -81,6 +84,7 @@ public class BojovyManager {
 
         String vysledek = UtokHrace(bonusUtok);
 
+        // Pokud použil kámen odstraní se z inventáře
         if (pouzityPredmet != null) {
             inventar.odeberPredmet(pouzityPredmet);
         }
@@ -137,6 +141,7 @@ public class BojovyManager {
         String vysledek = "Utekl jsi ze souboje!";
         jeSouboj = false;
 
+        // I při útěku kontrola jestli v místnosti nejsou další nepřátelé
         vysledek += kontrolaDalsichNepratel(hra);
 
         return vysledek;
@@ -144,8 +149,10 @@ public class BojovyManager {
 
     public String kontrolaDalsichNepratel(Hra hra) {
         String vysledek = "";
+        // Vymažení aktuálního nepřítele ze seznamu v místnosti
         hra.getAktualniLokace().getNepratelove().remove(nepritel);
 
+        // Okamžité napadnutí dalšího nepřítele
         if (!hra.getAktualniLokace().getNepratelove().isEmpty()) {
             Nepritel dalsi = hra.getAktualniLokace().getNepratelove().get(0);
             ZacniSouboj(hra.getHrac(), dalsi, hra.getInventar());

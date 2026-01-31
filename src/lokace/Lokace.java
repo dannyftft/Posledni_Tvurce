@@ -22,14 +22,11 @@ public abstract class Lokace {
         this.id = data.id;
         this.nazev = data.nazev;
         this.popis = data.popis;
-        this.nepratelove = data.nepratelove;
-        this.pozadovanaUrovenKarty = data.pozadovana_uroven_karty;
-        this.zamcena = data.zamcena;
         this.sousedniLokace = new ArrayList<>();
         this.predmety = new ArrayList<>();
         this.postavy = new ArrayList<>();
-
-    }
+        this.nepratelove = new ArrayList<>();
+        }
 
     public void pridejPropojeni(Lokace lokace) {
         if (!sousedniLokace.contains(lokace)) {

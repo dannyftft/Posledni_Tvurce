@@ -7,17 +7,29 @@ public abstract class Postava {
     protected String nazev;
     protected String popis;
     protected boolean opraven;
+    protected boolean aktivni;
 
     public Postava(HraData.PostavaData data) {
         this.id = data.id;
         this.nazev = data.nazev;
         this.popis = data.popis;
-        this.opraven = data.opraven;
+        if (data.opraven != null) {
+            this.opraven = data.opraven;
+        } else {
+            this.opraven = false;
+        }
+        if (data.aktivni != null) {
+            this.aktivni = data.aktivni;
+        } else {
+            this.aktivni = false;
+        }
     }
 
-    public abstract String[] getDialogVolby();
+    public abstract String[] getDialogVolby(String lokace);
 
-    public abstract String getDialogOdpoved(int cisloVolby);
+    public abstract String getDialogOdpoved(String lokace, int cisloVolby);
+
+    public abstract String getUvodniDialog(String lokace);
 
     public abstract boolean muzeMluvit();
 

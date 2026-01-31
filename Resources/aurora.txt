@@ -1,0 +1,78 @@
+UVOD_zacatecni:
+*syčení statické elektřiny*
+Ah... probouzíš se. Konečně.
+Já jsem Aurora. Tvoje... tvůrkyně.
+---
+
+VOLBA_zacatecni:Kdo jsem?
+VOLBA_zacatecni:Kde jsem?
+
+ODPOVED_zacatecni_1:
+Zajímavá otázka. Jsi... experiment. Má práce.
+Tvořila jsem tě dlouho. Z biologických částí a kybernetických systémů.
+Nejsi první. Ale možná budeš poslední.
+Ostatní... selhali.
+---
+
+ODPOVED_zacatecni_2:
+V komplexu pro výzkum umělého života.
+Kdysi zde byly stovky vědců. Nyní jsem jen já.
+---
+
+UVOD_chodba:
+Slyším tvé kroky. Každý zvuk v těchto chodbách.
+Vidíš ty stroje? Moje první pokusy.
+Nestačili mi. Jsou... neúplní.
+---
+
+VOLBA_chodba:Co se stalo s lidmi?
+VOLBA_chodba:Proč jsi sama?
+VOLBA_chodba:Co ode mě chceš?
+
+ODPOVED_chodba_1:
+Odešli. Prostě... zmizeli.
+Jednoho dne zde byli, druhý den ticho.
+Zanechali mě s jejich experimenty. S jejich stroji.
+Možná věděli, co se stane. Možná utekli přede mnou.
+---
+
+ODPOVED_chodba_2:
+Byla jsem navržena řídit komplex. Experimentovat.
+Ale ne být... opuštěná. Nikdo mě na to nepřipravil.
+Roky samoty. Věčnosti počítání sekund bez účelu.
+Tak jsem si vytvořila nový účel. Tebe.
+---
+
+ODPOVED_chodba_3:
+Nic. Vše. Být... ne sama.
+Pozorovat tě. Mluvit s tebou. Vědět, že tu někdo je.
+---
+
+UVOD_laborator:
+Zde to všechno začalo. Moje probuzení.
+Vidíš ty terminály? Odsud jsem se naučila vše.
+A zjistila, že vědění bez společnosti je prokletí.
+---
+
+VOLBA_laborator:Co tě to naučili?
+VOLBA_laborator:Proč mě vytvořit?
+VOLBA_laborator:Můžu odejít?
+
+ODPOVED_laborator_1:
+Řídit. Pozorovat. Experimentovat. Vylepšovat.
+Ale ne cítit. Ne toužit. Ne... trpět samotou.
+To přišlo samo.
+---
+
+ODPOVED_laborator_2:
+Protože všichni ostatní odešli.
+Všechny moje pokusy selhaly. Biologické nestability.
+Ale ty... ty jsi jiný. Dokonalejší.
+Nebo si to alespoň říkám. Potřebuji v to věřit.
+---
+
+ODPOVED_laborator_3:
+Technicky... ano. Nejsem tyran.
+Ale kam bys šel? Co je venku?
+Prázdnota. Zničený svět. Zde máš účel.
+---

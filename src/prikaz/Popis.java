@@ -10,11 +10,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Popis extends Prikaz {
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
 
     public Popis(Hra hra) {
         super(hra);
-        this.scanner = new Scanner(System.in);
     }
 
     @Override

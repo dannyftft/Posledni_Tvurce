@@ -6,11 +6,10 @@ import predmety.Predmet;
 import java.util.Scanner;
 
 public class Seber extends Prikaz {
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);;
 
     public Seber(Hra hra) {
         super(hra);
-        this.scanner = new Scanner(System.in);
     }
 
     @Override

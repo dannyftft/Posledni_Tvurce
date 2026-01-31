@@ -14,7 +14,6 @@ public class Konzole {
 
     public Konzole (Hra hra){
         this.hra = hra;
-        this.scanner = new Scanner(System.in);
         inicializace();
     }
 
@@ -22,8 +21,8 @@ public class Konzole {
         mapa.put("inventar", new Inventar(hra));
         mapa.put("jdi", new Jdi(hra));
         mapa.put("konec",new Konec(hra));
-        mapa.put("mluv",new Mluv(hra));
-        mapa.put("nemluv",new Nemluv(hra));
+        mapa.put("mluv", new Mluv(hra));
+        mapa.put("nemluv", new Nemluv(hra));
         mapa.put("pomoc",new Pomoc(hra,this));
         mapa.put("popis",new Popis(hra));
         mapa.put("pouzij",new Pouzij(hra));
@@ -42,6 +41,11 @@ public class Konzole {
             System.out.println("Probíhá souboj! Můžeš použít pouze: utok, utek, stav");
             return;
         }
+        if (hra.jeVDialogu() && !prikaz.equals("mluv") && !prikaz.equals("nemluv") && !prikaz.equals("konec")) {
+            System.out.println("Probíhá dialog! Můžeš použít pouze: mluv (pro odpověď), nemluv (pro ukončení)");
+            return;
+        }
+
         if (mapa.containsKey(prikaz)) {
             System.out.println(mapa.get(prikaz).execute());
             exit = mapa.get(prikaz).exit();
@@ -51,7 +55,6 @@ public class Konzole {
     }
 
     public void start() {
-        inicializace();
         do {
             proved();
         } while (!exit);

@@ -15,7 +15,7 @@
       "pozadovana_uroven_karty": 0,
       "predmety": ["kamen","deska"],
       "nepratelove": [],
-      "postavy": ["aurora"]
+      "postavy": ["aurora","poskozenyRobot"]
     },
     {
       "id": "chodba",

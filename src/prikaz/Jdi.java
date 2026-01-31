@@ -3,15 +3,17 @@ package prikaz;
 import hra.Hra;
 import lokace.Lokace;
 import nepratel.Nepritel;
+import postavy.Aurora;
+import postavy.Postava;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class Jdi extends Prikaz {
-    private Scanner scanner;
+    private Scanner scanner  = new Scanner(System.in);
 
     public Jdi(Hra hra) {
         super(hra);
-        this.scanner = new Scanner(System.in);
     }
 
     @Override
@@ -52,7 +54,19 @@ public class Jdi extends Prikaz {
         }
 
         hra.ZmenaLokace(nova);
-        String vysledek = "";
+        String vysledek = "Přicházíš do: " + nova.getNazev() + "\n" + nova.getPopis() + "\n";
+
+        //  Pokud je v nové místnosti aurora hned promluví
+        for (Postava p : nova.getPostavy()) {
+            if (p.getId().equals("aurora")) {
+                Aurora aurora = (Aurora) p;
+                String uvodniDialog = aurora.getUvodniDialog(nova.getId());
+
+                if (!uvodniDialog.isEmpty()) {
+                    vysledek += "\n" + aurora.getJmeno() + ":\n" + uvodniDialog + "\n";
+                }
+            }
+        }
 
         if (!nova.getNepratelove().isEmpty()) {
             Nepritel nepritel = nova.getNepratelove().get(0);
