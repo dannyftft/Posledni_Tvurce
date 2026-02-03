@@ -5,17 +5,7 @@ package minihra;
 
 public class Logicka implements Minihra {
     @Override
-    public void spust() {
-
-    }
-
-    @Override
-    public boolean jeDokoncena() {
-        return false;
-    }
-
-    @Override
-    public boolean getVysledek() {
+    public boolean spust() {
         return false;
     }
 }

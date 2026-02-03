@@ -53,7 +53,7 @@ public class Mluv extends Prikaz {
 
         // While běží dokud mluví
         while (hra.jeVDialogu()) {
-            String[] volby = postava.getDialogVolby(lokace.getId());
+            String[] volby = postava.getDialogVolby();
 
             if (volby.length == 0) {
                 hra.setVDialogu(false);
@@ -66,7 +66,7 @@ public class Mluv extends Prikaz {
                 System.out.println((i + 1) + ". " + volby[i]);
             }
 
-            System.out.print("Tvoje volba: ");
+            System.out.print(">>");
             String vstup = scanner.nextLine().trim().toLowerCase();
 
             // Pokud hráč napíše nemluv
@@ -78,7 +78,7 @@ public class Mluv extends Prikaz {
             // Zpracování čísla volby
             try {
                 int cislo = Integer.parseInt(vstup);
-                String odpoved = postava.getDialogOdpoved(lokace.getId(), cislo);
+                String odpoved = postava.getDialogOdpoved(cislo);
 
                 System.out.println("\n" + postava.getJmeno() + ": " + odpoved);
             } catch (Exception e) {

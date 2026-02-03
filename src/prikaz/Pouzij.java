@@ -1,7 +1,10 @@
 package prikaz;
 
 import hra.Hra;
+import lokace.Lokace;
 import predmety.Predmet;
+import minihra.Minihra;
+
 import java.util.Scanner;
 
 public class Pouzij extends Prikaz {
@@ -13,32 +16,57 @@ public class Pouzij extends Prikaz {
 
     @Override
     public String execute() {
-        if (hra.getInventar().getPredmety().isEmpty()) {
-            return "Nemáš žádné předměty k použití.";
+        Lokace lokace = hra.getAktualniLokace();
+        Minihra minihra = hra.getAktualniLokace().getMinihra();
+        boolean jeTuPc = (minihra != null);
+
+        if (hra.getInventar().getPredmety().isEmpty() && !jeTuPc) {
+            return "Tady není nic, co bys mohl použít.";
         }
 
-        System.out.println("Který předmět chceš použít?");
-        for (int i = 0; i < hra.getInventar().getPredmety().size(); i++) {
-            Predmet p = hra.getInventar().getPredmety().get(i);
-            System.out.println((i + 1) + ". " + p.getNazev());
+        System.out.println("Co chceš použít?");
+        int index = 1;
+
+        for (Predmet p : hra.getInventar().getPredmety()) {
+            System.out.println(index + ". " + p.getNazev());
+            index++;
+        }
+
+        if (jeTuPc) {
+            System.out.println(index + " Použít terminál");
         }
 
         System.out.print("Volba: ");
-        int volba = scanner.nextInt() - 1;
-        scanner.nextLine();
+        try {
+            int volba = scanner.nextInt();
+            scanner.nextLine();
 
-        if (volba < 0 || volba >= hra.getInventar().getPredmety().size()) {
-            return "Neplatná volba.";
+            if (volba >= 1 && volba <= hra.getInventar().getPredmety().size()) {
+                Predmet predmet = hra.getInventar().getPredmety().get(volba - 1);
+                String vysledek = predmet.pouzit(hra);
+
+                if (predmet.jeSpotrebovatelny()) {
+                    hra.getInventar().odeberPredmet(predmet);
+                }
+                return vysledek;
+            }
+
+
+            else if (volba == index) {
+                if (minihra.spust()) {
+                    lokace.Vyhra();
+                    return "Operace v terminálu byla úspěšná.";
+                } else {
+                    return "Nepodařilo se systémy nahodit.";
+                }
+            }
+
+        } catch (Exception e) {
+            scanner.nextLine();
+            return "Chyba: Zadej platné číslo ze seznamu.";
         }
 
-        Predmet predmet = hra.getInventar().getPredmety().get(volba);
-        String vysledek = predmet.pouzit(hra);
-
-        if (predmet.jeSpotrebovatelny()) {
-            hra.getInventar().odeberPredmet(predmet);
-        }
-
-        return vysledek;
+        return "Neplatná volba.";
     }
 
     @Override

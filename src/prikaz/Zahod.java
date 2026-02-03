@@ -25,7 +25,7 @@ public class Zahod extends Prikaz {
                     hra.getInventar().getPredmety().get(i).getNazev());
         }
 
-        System.out.print("Volba: ");
+        System.out.print(">>");
         int volba = scanner.nextInt() - 1;
         scanner.nextLine();
 

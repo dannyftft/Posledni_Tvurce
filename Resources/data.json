@@ -13,9 +13,9 @@
       "muzuZpet": false,
       "zamcena": false,
       "pozadovana_uroven_karty": 0,
-      "predmety": ["kamen","deska"],
+      "predmety": ["kamen"],
       "nepratelove": [],
-      "postavy": ["aurora","poskozenyRobot"]
+      "postavy": ["aurora"]
     },
     {
       "id": "chodba",
@@ -24,7 +24,7 @@
       "dalsi": "laborator",
       "predchozi": "zacatecni",
       "muzuZpet": false,
-      "zamcena": true,
+      "zamcena": false,
       "pozadovana_uroven_karty": 1,
       "predmety": ["karta"],
       "nepratelove": ["robot", "dron"],
@@ -156,7 +156,7 @@
       "id": "poskozenyRobot",
       "nazev": "Poškozený robot",
       "popis": "Deaktivovaný humanoidní robot. Zdá se, že by mohl znovu fungovat.",
-      "opraven": false
+      "aktivni": false
     },
     {
       "id": "aurora",

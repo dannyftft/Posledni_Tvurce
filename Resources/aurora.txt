@@ -1,5 +1,4 @@
 UVOD_zacatecni:
-*syčení statické elektřiny*
 Ah... probouzíš se. Konečně.
 Já jsem Aurora. Tvoje... tvůrkyně.
 ---
@@ -75,4 +74,74 @@ ODPOVED_laborator_3:
 Technicky... ano. Nejsem tyran.
 Ale kam bys šel? Co je venku?
 Prázdnota. Zničený svět. Zde máš účel.
+---
+
+UVOD_servis:
+Dostal jsi se dál... překvapivé.
+Nečekala jsem že se hackneš do terminálu.
+---
+
+VOLBA_servis:Co je s tím robotem?
+
+ODPOVED_servis_1:
+Nevšímej si jeho... Je nefunkční.
+Nic nezkoušej.
+---
+
+UVOD_jidelna:
+Tuto místnost nesnášim... Rychle ji opusť.
+Nic tady není.
+---
+
+VOLBA_jidelna:Proč nesnášíš tuto místnost?
+VOLBA_jidelna:Je tady něco?
+
+ODPOVED_jidelna_1:
+Přestaň se ze mně něco dostat.
+---
+
+ODPOVED_jidelna_2:
+...
+---
+
+UVOD_obytnyProstor:
+HAHA zamkknula jsem dveře... dál se nedostaneš.
+---
+
+VOLBA_obytnyProstor:Proč jsi vytvořila toho drona?
+VOLBA_obytnyProstor:Co je s tím Poškozeným robotem?
+
+ODPOVED_obytnyProstor_1:
+To byl jeden z mých experimentů... To bys měl už vědět.
+---
+
+ODPOVED_obytnyProstor_2:
+To byl jeden z mých experimentů... To bys měl už vědět.
+---
+
+UVOD_testovaci:
+Tady končíme... dál už tě nepustim.
+Tento experiment končí!
+---
+
+VOLBA_testovaci:HA porazil jsem tvého mecha. těd tě jdu zníčit.
+VOLBA_testovaci:Proč mně chceš zníčit?
+
+ODPOVED_testovaci_1:
+Jsem tady sama několik století...
+A nepovolim aby jeden z mých vytvoření mě porazil.
+---
+
+ODPOVED_testovaci_2:
+Jsi neúspěšným experimentem.
+---
+
+UVOD_ridici:
+Běž pryč!! Sem nechoď.
+---
+
+Volba_ridici:RIP
+
+ODPOVED_ridici_1:
+...
 ---

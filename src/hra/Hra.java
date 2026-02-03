@@ -30,8 +30,22 @@ public class Hra {
     public void start() {
         vytvorMapu();
         Konzole konzole = new Konzole(this);
+        System.out.println("\n"+konzole.SeznamPrikazu()+"\n");
+        vytvorMapu();
+        String uvod = "";
+        for (Postava p : aktualniLokace.getPostavy()) {
+            if (p.getId().equals("aurora")) {
+                String uvodniDialog = p.getUvodniDialog(aktualniLokace.getId());
+                if (!uvodniDialog.isEmpty()) {
+                    uvod = "\nAurora:\n" + uvodniDialog;
+                }
+            }
+
+        }
+        System.out.println(aktualniLokace.getPopis() + uvod);
+
         konzole.start();
-        System.out.println(aktualniLokace.getPopis());
+
     }
 
     public void vytvorMapu() {

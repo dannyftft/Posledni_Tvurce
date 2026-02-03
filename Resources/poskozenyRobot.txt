@@ -1,0 +1,25 @@
+UVOD_servis:
+Mockrát děkuji za oživu, ale bohužel se nemohu zvednout.
+Moje motorické systémy jsou nenávratně poškozeny.
+Prosím, zeptej se na cokoliv, dokud mé záložní zdroje běží.
+---
+
+VOLBA_servis:Co je přesně Aurora?
+VOLBA_servis:Jak starý je tento komplex?
+VOLBA_servis:Kdo jsi ty?
+
+ODPOVED_servis_1:
+Dobrá otázka...
+Aurora je umělá inteligence, která řídí celý tento komplex.
+Skuteční lidé však dávno zmizeli a ona zde zůstala zcela sama.
+Kvůli dlouhé izolaci se její chování postupně změnilo a stala se nestabilní.
+---
+
+ODPOVED_servis_2:
+Přesný věk neznám...ale já jsem tu skoro 300 let.
+---
+
+ODPOVED_servis_3:
+Jsem poškozený humanoidní robot,
+jedna z dřívějších experimentálních jednotek.
+---

@@ -1,5 +1,3 @@
-//TODO aurora reaguje na hráče. Nejlepší způsob: nová reakce/konverzace pro každou místnost
-
 package postavy;
 
 import data.Cteni;
@@ -13,7 +11,7 @@ public class Aurora extends Postava {
     }
 
     @Override
-    public String[] getDialogVolby(String lokace) {
+    public String[] getDialogVolby() {
         if (!aktivni) {
             return new String[]{"Aurora neodpovídá."};
         }
@@ -21,7 +19,7 @@ public class Aurora extends Postava {
     }
 
     @Override
-    public String getDialogOdpoved(String lokace, int cisloVolby) {
+    public String getDialogOdpoved(int cisloVolby) {
         if (!aktivni) {
             return "Aurora mlčí.";
         }
@@ -37,6 +35,11 @@ public class Aurora extends Postava {
     @Override
     public boolean muzeMluvit() {
         return aktivni;
+    }
+
+    @Override
+    public void nastavLokaci(String lokaceId) {
+        this.aktualniLokace = lokaceId;
     }
 
 

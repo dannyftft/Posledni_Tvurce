@@ -1,5 +1,6 @@
 package postavy;
 
+import data.Cteni;
 import hra.HraData;
 
 public class PoskozenyRobot extends Postava {
@@ -10,32 +11,36 @@ public class PoskozenyRobot extends Postava {
     }
 
     @Override
-    public String[] getDialogVolby(String lokace) {
-        // Pokud neporavený nečte malý text o tom jak není opravený možná z Recources.postavy.txt nebo univerzální error soubor
-        // Pokud opraven: načte z Resources/postavy.txt
-        return new String[0];
+    public String[] getDialogVolby() {
+        if (!aktivni) {
+            return new String[]{"Robot je nefunkční a neodpovídá."};
+        }
+        return Cteni.nactiDialogVolby(this.id, "servis");
     }
 
     @Override
-    public String getDialogOdpoved(String lokace, int cisloVolby) {
-        // Pokud neoporavený nečte malý text o tom jak není opravený možná z Recources.postavy.txt nebo univerzální error soubor
-        // Pokud opraven: načte z Resources/postavy.txt
-        // Obsahuje lore o minulosti komplexu btw
-        return "";
+    public String getDialogOdpoved(int cisloVolby) {
+        if (!aktivni) {
+            return "Robot tiše leží bez reakce.";
+        }
+        return Cteni.nactiDialogOdpoved(this.id, "servis", cisloVolby);
     }
+
 
     @Override
     public String getUvodniDialog(String lokace) {
-        return "";
+        if(!aktivni){
+            return "Robot tiše leží bez reakce.";
+        }
+        return Cteni.nactiUvodniDialog(this.id, "servis");
     }
 
     @Override
     public boolean muzeMluvit() {
-        // Pokud oprvaný a ve správné místnosti (Servis) tak = true
-        return false;
+        return aktivni;
     }
 
     public void opravit() {
-        opraven = true;
+        aktivni = true;
     }
 }

@@ -25,7 +25,7 @@ public class Seber extends Prikaz {
             System.out.println((i + 1) + ". " + lokace.getPredmety().get(i).getNazev());
         }
 
-        System.out.print("Volba: ");
+        System.out.print(">>");
         int volba = scanner.nextInt() - 1;
         scanner.nextLine();
 

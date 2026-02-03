@@ -1,13 +1,6 @@
 package minihra;
 
 public interface Minihra {
-
-    void spust();
-    // začne minihru
-
-    boolean jeDokoncena();
-    // vrátí true pokud je minihra dokončena
-
-    boolean getVysledek();
-    // vátí true pokud hráč vyhraje
+    // True pokud hráč vyhrál false pokud prohrál nebo odešel.
+    public boolean spust();
 }

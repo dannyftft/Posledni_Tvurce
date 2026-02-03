@@ -99,7 +99,9 @@ public class Cteni {
 
                 // Konec bloku při narazení na oddělovač
                 if (radek.equals("---")) {
-                    if (cteme) break;
+                    if (cteme) {
+                        break;
+                    }
                 }
 
                 // Ignoruje ostatní značky a sbírá pouze text odpovědi

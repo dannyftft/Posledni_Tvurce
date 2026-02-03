@@ -59,14 +59,13 @@ public class Jdi extends Prikaz {
         //  Pokud je v nové místnosti aurora hned promluví
         for (Postava p : nova.getPostavy()) {
             if (p.getId().equals("aurora")) {
-                Aurora aurora = (Aurora) p;
-                String uvodniDialog = aurora.getUvodniDialog(nova.getId());
-
+                String uvodniDialog = p.getUvodniDialog(nova.getId());
                 if (!uvodniDialog.isEmpty()) {
-                    vysledek += "\n" + aurora.getJmeno() + ":\n" + uvodniDialog + "\n";
+                    vysledek += "\n\nAurora:\n" + uvodniDialog;
                 }
             }
         }
+
 
         if (!nova.getNepratelove().isEmpty()) {
             Nepritel nepritel = nova.getNepratelove().get(0);

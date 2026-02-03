@@ -1,7 +1,5 @@
 //TODO většina tříd pro příkazy nemají způsob vyřešení špatné volby
-//TODO úvodní txt
-//TODO Dokončit dialog pro auroru a implementovat PoskozenyRobot
-
+//TODO Zamčení a odemčení dveří vůbec nefunguje
 import hra.Hra;
 
 public class Main {

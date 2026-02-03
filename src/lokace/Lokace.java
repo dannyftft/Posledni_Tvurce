@@ -1,6 +1,7 @@
 package lokace;
 
 import hra.HraData;
+import minihra.Minihra;
 import predmety.Predmet;
 import postavy.Postava;
 import nepratel.Nepritel;
@@ -59,19 +60,6 @@ public abstract class Lokace {
         return popis;
     }
 
-    public String[] getSeznamSousedu() {
-        return new String[0];
-    }
-
-    public Predmet odeberPredmet(String nazev) {
-        // Pokud jde odebere a vrátí předmět
-        return null;
-    }
-
-    public void nastavPopis(String popis) {
-        this.popis = popis;
-    }
-
     public List<Predmet> getPredmety() {
         return predmety;
     }
@@ -84,15 +72,16 @@ public abstract class Lokace {
         return nepratelove;
     }
 
-    public boolean jeZamcena() {
-        return zamcena;
-    }
-
     public String getId() {
         return id;
     }
 
     public String getNazev() {
         return nazev;
+    }
+    public Minihra getMinihra() {
+        return null;
+    }
+    public void Vyhra(){
     }
 }

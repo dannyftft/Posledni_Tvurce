@@ -53,7 +53,7 @@ public class BojovyManager {
             }
         }
 
-        System.out.print("\nVolba: ");
+        System.out.print("\n>>");
         int volba = scanner.nextInt();
         scanner.nextLine();
 

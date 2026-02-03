@@ -1,7 +1,6 @@
 package hra;
 
 import com.google.gson.Gson;
-import nepratel.Nepritel;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -76,7 +75,6 @@ public class HraData {
 
     public static class HracData {
         public int max_zdravi;
-        public int sila;
         public int utok;
     }
 
@@ -110,7 +108,6 @@ public class HraData {
         public String id;
         public String nazev;
         public String popis;
-        public Boolean opraven;
         public Boolean aktivni;
     }
 
