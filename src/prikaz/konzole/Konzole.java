@@ -57,7 +57,7 @@ public class Konzole {
     public void start() {
         do {
             proved();
-        } while (!exit);
+        } while (!exit && !hra.jeKonec());
     }
 
     public String SeznamPrikazu() {

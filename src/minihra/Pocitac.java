@@ -21,11 +21,11 @@ public class Pocitac implements Minihra {
     public boolean spust() {
         System.out.println("\n================================================");
         System.out.println("        REKONSTRUKCE ENERGETICKÉHO VEDENÍ         ");
-        System.out.println("================================================= ");
+        System.out.println("================================================  ");
         System.out.println(" STAV: Přerušení toku v sekcích (0).              ");
         System.out.println(" DIAGNOSTIKA: Změna napětí v sekci ovlivňuje      ");
         System.out.println("              bezprostředně sousedící spoje.      ");
-        System.out.println("================================================= ");
+        System.out.println("================================================  ");
 
         while (!jeVseAktivni()) {
             vypisVedeni();

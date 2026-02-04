@@ -3,14 +3,13 @@ package prikaz;
 import hra.Hra;
 import lokace.Lokace;
 import nepratel.Nepritel;
-import postavy.Aurora;
 import postavy.Postava;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Jdi extends Prikaz {
-    private Scanner scanner  = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public Jdi(Hra hra) {
         super(hra);
@@ -31,7 +30,9 @@ public class Jdi extends Prikaz {
 
         System.out.println("Kam chceš jít?");
         for (int i = 0; i < sousedi.size(); i++) {
-            System.out.println((i + 1) + ". " + sousedi.get(i).getNazev());
+            Lokace lokace = sousedi.get(i);
+            String stavZamku = lokace.jeZamcena() ? " [ZAMČENO]" : "";
+            System.out.println((i + 1) + ". " + lokace.getNazev() + stavZamku);
         }
 
         System.out.print("Volba: ");
@@ -44,16 +45,33 @@ public class Jdi extends Prikaz {
 
         Lokace nova = sousedi.get(volba);
 
-        int urovenKarty = 0;
-        if (hra.getInventar().getKarta() != null) {
-            urovenKarty = hra.getInventar().getKarta().getUroven();
-        }
+        if (nova.jeZamcena()) {
+            int potrebnaUroven = nova.getPozadovanaUrovenKarty();
+            int Uroven = 0;
 
-        if (!nova.jePristupna(urovenKarty)) {
-            return "Dveře jsou zamčené. Potřebuješ kartu vyšší úrovně.";
+            if (hra.getInventar().getKarta() != null) {
+                Uroven = hra.getInventar().getKarta().getUroven();
+            }
+
+            //Pokud je potřeba karta (úroveň > 0)
+            if (potrebnaUroven > 0) {
+                if (Uroven >= potrebnaUroven) {
+                    nova.setZamcena(false);
+                    System.out.println("\n[ SYSTÉM ] Karta přijata. Dveře byly odemčeny.");
+                } else if(Uroven == 0){
+                    return "Dveře vyžadují kartu úrovně " + potrebnaUroven;
+                }else {
+                    return "Dveře vyžadují kartu úrovně " + potrebnaUroven + ". Tvá karta má úroveň " + Uroven + ".";
+                }
+            }
+            //Pokud je zamčeno ale úroveň karty je 0 vyžaduje to terminál
+            else {
+                return "Dveře jsou mechanicky zablokovány. Musíš najít jiný způsob, jak je otevřít.";
+            }
         }
 
         hra.ZmenaLokace(nova);
+
         String vysledek = "Přicházíš do: " + nova.getNazev() + "\n" + nova.getPopis() + "\n";
 
         //  Pokud je v nové místnosti aurora hned promluví
@@ -61,12 +79,12 @@ public class Jdi extends Prikaz {
             if (p.getId().equals("aurora")) {
                 String uvodniDialog = p.getUvodniDialog(nova.getId());
                 if (!uvodniDialog.isEmpty()) {
-                    vysledek += "\n\nAurora:\n" + uvodniDialog;
+                    vysledek += "\nAurora:\n" + uvodniDialog;
                 }
             }
         }
 
-
+        // Souboj
         if (!nova.getNepratelove().isEmpty()) {
             Nepritel nepritel = nova.getNepratelove().get(0);
             hra.getBojovyManager().ZacniSouboj(hra.getHrac(), nepritel, hra.getInventar());

@@ -10,7 +10,7 @@ public abstract class Predmet {
     protected String popis;
     protected boolean spotrebovatelny;
     protected boolean zabiraSlot;
-    protected Integer uroven;
+    protected int uroven;
 
     public Predmet(HraData.PredmetData data) {
         this.id = data.id;
@@ -39,7 +39,7 @@ public abstract class Predmet {
         return popis;
     }
 
-    public Integer getUroven() {
+    public int getUroven() {
         return uroven;
     }
 

@@ -16,7 +16,11 @@ public class InventarSpravce {
 
     public boolean pridejPredmet(Predmet predmet) {
         if (predmet.getId().equals("karta")) {
-            this.karta = (Karta) predmet;
+            if (this.karta == null) {
+                this.karta = (Karta) predmet;
+            } else {
+                vylepsiKartu();
+            }
             return true;
         }
 
@@ -84,5 +88,10 @@ public class InventarSpravce {
 
     public Karta getKarta() {
         return karta;
+    }
+    public void vylepsiKartu() {
+        if (this.karta != null) {
+            this.karta.vylepsit();
+        }
     }
 }

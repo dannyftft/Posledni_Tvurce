@@ -99,7 +99,7 @@ public class HraData {
         public Integer leceni;
         public Integer bonus_sila;
         public Integer poskozeni;
-        public Integer uroven;
+        public int uroven;
         public boolean spotrebovatelny;
         public boolean zabira_slot;
     }

@@ -3,10 +3,11 @@ package prikaz;
 import hra.Hra;
 import lokace.Lokace;
 import predmety.Predmet;
+import predmety.Karta;
 import java.util.Scanner;
 
 public class Seber extends Prikaz {
-    private Scanner scanner = new Scanner(System.in);;
+    private Scanner scanner = new Scanner(System.in);
 
     public Seber(Hra hra) {
         super(hra);
@@ -35,6 +36,18 @@ public class Seber extends Prikaz {
 
         Predmet predmet = lokace.getPredmety().get(volba);
 
+        // Speciální hláška pro kartu
+        if (predmet.getId().equals("karta")) {
+            Karta karta = hra.getInventar().getKarta();
+
+            if (karta != null) {
+                hra.getInventar().pridejPredmet(predmet);
+                lokace.getPredmety().remove(predmet);
+                return "Našel jsi další část přístupového kódu. Karta vylepšena na úroveň " + karta.getUroven() + ".";
+            }
+        }
+
+        // Standardní sebrání (včetně první karty)
         if (hra.getInventar().pridejPredmet(predmet)) {
             lokace.getPredmety().remove(predmet);
             return "Sebral jsi: " + predmet.getNazev();

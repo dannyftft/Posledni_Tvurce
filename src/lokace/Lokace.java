@@ -23,6 +23,8 @@ public abstract class Lokace {
         this.id = data.id;
         this.nazev = data.nazev;
         this.popis = data.popis;
+        this.zamcena = data.zamcena;
+        this.pozadovanaUrovenKarty = data.pozadovana_uroven_karty;
         this.sousedniLokace = new ArrayList<>();
         this.predmety = new ArrayList<>();
         this.postavy = new ArrayList<>();
@@ -51,8 +53,8 @@ public abstract class Lokace {
         return sousedniLokace;
     }
 
-    public boolean jePristupna(int urovenKarty) {
-        return !zamcena || urovenKarty >= pozadovanaUrovenKarty;
+    public boolean jeZamcena(){
+        return zamcena;
     }
 
     public String getPopis() {
@@ -79,9 +81,19 @@ public abstract class Lokace {
     public String getNazev() {
         return nazev;
     }
+
     public Minihra getMinihra() {
         return null;
     }
+
+    public int getPozadovanaUrovenKarty() {
+        return pozadovanaUrovenKarty;
+    }
+
+    public void setZamcena(boolean zamcena){
+        this.zamcena = zamcena;
+    }
+
     public void Vyhra(){
     }
 }

@@ -17,4 +17,7 @@ public class Karta extends Predmet {
     public void vylepsit() {
         uroven++;
     }
+    public int getUroven() {
+        return uroven;
+    }
 }

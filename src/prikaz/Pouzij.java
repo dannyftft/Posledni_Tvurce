@@ -55,7 +55,6 @@ public class Pouzij extends Prikaz {
             else if (volba == index) {
                 if (minihra.spust()) {
                     lokace.Vyhra();
-                    return "Operace v terminálu byla úspěšná.";
                 } else {
                     return "Nepodařilo se systémy nahodit.";
                 }

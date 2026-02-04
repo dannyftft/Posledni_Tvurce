@@ -4,7 +4,6 @@ import hra.Hra;
 import lokace.Lokace;
 import predmety.Predmet;
 import postavy.Postava;
-import nepratel.Nepritel;
 
 public class Prohledej extends Prikaz {
 
@@ -36,6 +35,9 @@ public class Prohledej extends Prikaz {
             }
         }
 
+        if(hra.getAktualniLokace().getId().equals("laborator")){
+            s = s + "\nFunkční terminál: Obrazovka slabě bliká, jako by čekala na vstup.";
+        }
         return s;
     }
 

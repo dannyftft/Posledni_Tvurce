@@ -25,7 +25,7 @@
       "predchozi": "zacatecni",
       "muzuZpet": false,
       "zamcena": false,
-      "pozadovana_uroven_karty": 1,
+      "pozadovana_uroven_karty": 0,
       "predmety": ["karta"],
       "nepratelove": ["robot", "dron"],
       "postavy": ["aurora"]
@@ -51,7 +51,7 @@
       "predchozi": "laborator",
       "muzuZpet": false,
       "zamcena": true,
-      "pozadovana_uroven_karty": 1,
+      "pozadovana_uroven_karty": 0,
       "predmety": ["jadro"],
       "nepratelove": [],
       "postavy": ["aurora", "poskozenyRobot"]
@@ -63,7 +63,7 @@
       "dalsi": "obytnyProstor",
       "predchozi": "servis",
       "muzuZpet": false,
-      "zamcena": false,
+      "zamcena": true,
       "pozadovana_uroven_karty": 1,
       "predmety": ["trubka", "deska"],
       "nepratelove": [],
@@ -76,8 +76,8 @@
       "dalsi": "testovaci",
       "predchozi": "jidelna",
       "muzuZpet": true,
-      "zamcena": false,
-      "pozadovana_uroven_karty": 0,
+      "zamcena": true,
+      "pozadovana_uroven_karty": 1,
       "predmety": ["kamen"],
       "nepratelove": ["robot", "dron"],
       "postavy": ["aurora"]
