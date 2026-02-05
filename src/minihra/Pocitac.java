@@ -29,7 +29,7 @@ public class Pocitac implements Minihra {
 
         while (!jeVseAktivni()) {
             vypisVedeni();
-            System.out.print("Vyber sekci k rekalibraci (1-9) nebo 0: ");
+            System.out.print("Vyber sekci k rekalibraci (1-9) nebo 0 pro vzdání: ");
 
             try {
                 int volba = scanner.nextInt();

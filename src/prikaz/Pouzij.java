@@ -4,7 +4,6 @@ import hra.Hra;
 import lokace.Lokace;
 import predmety.Predmet;
 import minihra.Minihra;
-
 import java.util.Scanner;
 
 public class Pouzij extends Prikaz {
@@ -17,10 +16,11 @@ public class Pouzij extends Prikaz {
     @Override
     public String execute() {
         Lokace lokace = hra.getAktualniLokace();
-        Minihra minihra = hra.getAktualniLokace().getMinihra();
-        boolean jeTuPc = (minihra != null);
+        Minihra minihra = lokace.getMinihra();
 
-        if (hra.getInventar().getPredmety().isEmpty() && !jeTuPc) {
+        boolean jeTuMinihra = (minihra != null);
+
+        if (hra.getInventar().getPredmety().isEmpty() && !jeTuMinihra) {
             return "Tady není nic, co bys mohl použít.";
         }
 
@@ -32,40 +32,50 @@ public class Pouzij extends Prikaz {
             index++;
         }
 
-        if (jeTuPc) {
-            System.out.println(index + " Použít terminál");
+        if (jeTuMinihra) {
+            if (lokace.getId().equals("jidelna")) {
+                System.out.println(index + ". Obvod pro kamery");
+
+            } else if(lokace.getId().equals("laborator")) {
+                System.out.println(index + ". Terminál");
+            }
         }
 
         System.out.print("Volba: ");
+
         try {
             int volba = scanner.nextInt();
             scanner.nextLine();
 
             if (volba >= 1 && volba <= hra.getInventar().getPredmety().size()) {
-                Predmet predmet = hra.getInventar().getPredmety().get(volba - 1);
-                String vysledek = predmet.pouzit(hra);
+                Predmet vybrany = hra.getInventar().getPredmety().get(volba - 1);
+                String vysledek = vybrany.pouzit(hra);
 
-                if (predmet.jeSpotrebovatelny()) {
-                    hra.getInventar().odeberPredmet(predmet);
+                if (vybrany.jeSpotrebovatelny()) {
+                    hra.getInventar().odeberPredmet(vybrany);
                 }
                 return vysledek;
             }
 
-
-            else if (volba == index) {
+            if (jeTuMinihra && volba == index) {
                 if (minihra.spust()) {
                     lokace.Vyhra();
-                } else {
-                    return "Nepodařilo se systémy nahodit.";
-                }
+                    if (minihra.getOdmenaId() != null) {
+                        String odmenaId = minihra.getOdmenaId();
+                        Predmet odmena = hra.vytvorPredmet(odmenaId);
+                        if (odmena != null) {
+                            hra.getInventar().pridejPredmet(odmena);
+                            return "Získal jsi: " + odmena.getNazev();
+                            }
+                        }
+                    }
             }
 
         } catch (Exception e) {
             scanner.nextLine();
-            return "Chyba: Zadej platné číslo ze seznamu.";
+            return "Zadej prosím číslo ze seznamu.";
         }
-
-        return "Neplatná volba.";
+        return null;
     }
 
     @Override

@@ -5,7 +5,8 @@ import hra.HraData;
 public abstract class Postava {
     protected String id;
     protected String nazev;
-    protected String popis;;
+    protected String popis;
+    ;
     protected boolean aktivni;
 
     public Postava(HraData.PostavaData data) {
@@ -29,18 +30,11 @@ public abstract class Postava {
         return this.popis;
     }
 
-    public void nastavPopis(String popis) {
-        this.popis = popis;
-    }
-
     public String getId() {
         return this.id;
     }
 
     public String getUvodniDialog(String lokaceId) {
         return "";
-    }
-
-    public void nastavLokaci(String lokaceId) {
     }
 }

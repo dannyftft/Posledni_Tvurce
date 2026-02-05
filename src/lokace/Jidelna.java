@@ -1,9 +1,17 @@
 package lokace;
 
-import hra.HraData;
+import minihra.Logicka;
+import minihra.Minihra;
 
 public class Jidelna extends Lokace {
-    public Jidelna(HraData.LokaceData data) {
+    private Minihra logicka = new Logicka();
+
+    public Jidelna(hra.HraData.LokaceData data) {
         super(data);
+    }
+
+    @Override
+    public Minihra getMinihra() {
+        return logicka;
     }
 }

@@ -44,14 +44,7 @@ public abstract class Nepritel {
         return nazev;
     }
 
-    public String getPopis() {
-        return popis;
-    }
     public String getId() {
         return id;
-    }
-
-    public void nastavPopis(String popis) {
-        this.popis = popis;
     }
 }

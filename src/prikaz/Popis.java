@@ -52,10 +52,10 @@ public class Popis extends Prikaz {
         }
 
         System.out.print(">> ");
-        String vstup = scanner.nextLine().trim();
+        int volba = scanner.nextInt() - 1;
+        scanner.nextLine();;
 
         try {
-            int volba = Integer.parseInt(vstup) - 1;
             if (volba >= 0 && volba < popisy.size()) {
                 return "\n" + popisy.get(volba);
             } else {

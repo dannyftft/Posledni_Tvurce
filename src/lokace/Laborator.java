@@ -5,18 +5,22 @@ import minihra.Pocitac;
 
 public class Laborator extends Lokace {
     private Minihra pc = new Pocitac();
-    private boolean vyhra = false;
 
     public Laborator(hra.HraData.LokaceData data) {
         super(data);
     }
 
     @Override
-    public Minihra getMinihra() { return pc; }
+    public Minihra getMinihra() {
+        return pc;
+    }
 
     @Override
     public void Vyhra() {
-        this.vyhra = true;
-        System.out.println("Dveře byly odemčeny.");
+        Lokace dalsi =getSousedniLokace().getFirst();
+        if (dalsi != null) {
+            dalsi.setZamcena(false);
+        }
+        System.out.println("Dveře do další místnosti byly odemčeny.");
     }
 }

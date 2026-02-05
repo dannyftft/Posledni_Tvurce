@@ -43,14 +43,6 @@ public abstract class Predmet {
         return uroven;
     }
 
-    public void setUroven(Integer uroven) {
-        this.uroven = uroven;
-    }
-
-    public void nastavPopis(String popis) {
-        this.popis = popis;
-    }
-
     public String getId() {
         return id;
     }

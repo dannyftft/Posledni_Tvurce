@@ -35,7 +35,7 @@ public class Jdi extends Prikaz {
             System.out.println((i + 1) + ". " + lokace.getNazev() + stavZamku);
         }
 
-        System.out.print("Volba: ");
+        System.out.print(">>");
         int volba = scanner.nextInt() - 1;
         scanner.nextLine();
 

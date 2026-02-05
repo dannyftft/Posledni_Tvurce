@@ -41,9 +41,4 @@ public class Aurora extends Postava {
     public void nastavLokaci(String lokaceId) {
         this.aktualniLokace = lokaceId;
     }
-
-
-    public boolean jeAktivni() {
-        return aktivni;
-    }
 }

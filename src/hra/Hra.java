@@ -151,7 +151,7 @@ public class Hra {
     }
 
     // Vytvoří instanci předmětu
-    private Predmet vytvorPredmet(String id) {
+    public Predmet vytvorPredmet(String id) {
         PredmetData data = hraData.najdiPredmet(id);
         if (data == null) return null; // Pokud data v JSON nejsou
 

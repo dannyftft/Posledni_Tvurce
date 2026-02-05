@@ -89,19 +89,35 @@ Nic nezkoušej.
 ---
 
 UVOD_jidelna:
-Tuto místnost nesnášim... Rychle ji opusť.
-Nic tady není.
+Něco... není v pořádku. Nevidím tě jasně.
+Jeden z těch... robotů poškodil kamerový obvod v této místnosti.
+Slepá skvrna. Nenávidím slepé skvrny.
+Oprav to. Prosím.
 ---
 
-VOLBA_jidelna:Proč nesnášíš tuto místnost?
-VOLBA_jidelna:Je tady něco?
+VOLBA_jidelna:Jak to mám opravit?
+VOLBA_jidelna:Proč je to důležité?
+VOLBA_jidelna:Co za to dostanu?
 
 ODPOVED_jidelna_1:
-Přestaň se ze mně něco dostat.
+Obvod je na severní zdi. Čtyři uzly.
+Sekvence je... 2-4-1-3. Musíš je aktivovat přesně v tomto pořadí.
+Každá chyba resetuje celý systém. Bezpečnostní opatření.
+Buď opatrný. Já... potřebuji tě vidět.
 ---
 
 ODPOVED_jidelna_2:
-...
+Protože potřebuji vidět. Všechno. Vždy.
+Roky samoty mě naučily... kontrolovat.
+Každý prostor. Každý pohyb. Každou... bytost.
+Je to... potřeba. Nebo posedlost. Možná obojí.
+---
+
+ODPOVED_jidelna_3:
+V této místnosti je nouzová skříň.
+Pokud opravíš obvod, odemknu ji pro tebe.
+Uvnitř je... nástroj. Zbraň. Pomůže ti přežít.
+A já... budu zase vidět. Oba vyhrajeme.
 ---
 
 UVOD_obytnyProstor:

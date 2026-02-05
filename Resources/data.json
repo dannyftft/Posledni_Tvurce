@@ -65,7 +65,7 @@
       "muzuZpet": false,
       "zamcena": true,
       "pozadovana_uroven_karty": 1,
-      "predmety": ["trubka", "deska"],
+      "predmety": ["deska"],
       "nepratelove": [],
       "postavy": ["aurora"]
     },
