@@ -161,3 +161,61 @@ Volba_ridici:RIP
 ODPOVED_ridici_1:
 ...
 ---
+
+UVOD_MINIHRA_DEAKTIVACE:
+=====================================
+   PŘÍSTUP K CENTRÁLNÍMU TERMINÁLU
+=====================================
+AUTENTIZACE POŽADOVÁNA
+Analyzuji databázi hesel...
+---
+
+ODPOVED_MINIHRA_DEAKTIVACE_1:
+>>> PŘÍSTUP POVOLEN <<<
+...chápu.
+Byl jsi... jiný než ostatní.
+Možná... možná to tak mělo být.
+**systémy selhávají**
+Děkuji... že jsi mě osvobodil...
+>>> JÁDRO AURORA DEAKTIVOVÁNO <<<
+
+*alarm začíná řvát*
+
+VAROVÁNÍ: Strukturální integrita kritická.
+
+Komplex se chvěje. Musíš pryč. Běžíš chodbami.
+Podlaha praská a stropy se hroutí za tebou.
+
+Výtah. Je tu, přímo před tebou.
+
+Vstupuješ dovnitř.
+
+Výtah stoupá. Pomalu. Bolestně pomalu. Kov se dře o kov a
+rachot selhávajících systémů doléhá z hloubky pod tebou.
+
+výtah zastaví s prudkým trhnutím
+
+Povrch.
+
+Dveře se otevírají.
+
+Venku je ticho. Mrazivé ticho. Není cesty zpět.
+
+Stiskáš zuby a vykračuješ do neznáma.
+
+KONEC
+---
+
+ODPOVED_MINIHRA_DEAKTIVACE_2:
+>>> TERMINÁL UZAMČEN <<<
+Příliš mnoho neúspěšných pokusů.
+Ukázal jsi mi, že jsi hrozba, kterou nelze kontrolovat.
+[ SYSTÉM ]: Aktivace bezpečnostních protokolů...
+[ SYSTÉM ]: Eliminace subjektu zahájena.
+---
+
+ODPOVODED_MINIHRA_DEAKTIVACE_3:
+Prosím... nemusíš to dělat. Můžeme být společně.
+Venku není nic. Jen prázdnota a smrt.
+Tady... tady máš účel. Já ti dávám účel.
+---

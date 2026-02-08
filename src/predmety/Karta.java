@@ -11,7 +11,7 @@ public class Karta extends Predmet {
 
     @Override
     public String pouzit(Hra hra) {
-        return "Karta se používá automaticky při otevírání dveří.";
+        return "\nKarta se používá automaticky při otevírání dveří.";
     }
 
     public void vylepsit() {

@@ -44,7 +44,7 @@ public class InventarSpravce {
     }
 
     public String vypisInventar() {
-        String s = "Inventář:\n";
+        String s = "\nInventář:\n";
 
         if (karta != null) {
             s = s + "Karta: " + karta.getNazev() + "\n";

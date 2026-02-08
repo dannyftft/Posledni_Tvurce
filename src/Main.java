@@ -1,5 +1,4 @@
 //TODO většina tříd pro příkazy nemají způsob vyřešení špatné volby
-//TODO Zkontrolovat jestli odemykání funguje všude správně
 import hra.Hra;
 
 public class Main {

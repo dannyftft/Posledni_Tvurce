@@ -23,7 +23,7 @@ public class Popis extends Prikaz {
         List<String> volby = new ArrayList<>();
         List<String> popisy = new ArrayList<>();
 
-        volby.add("Místnost");
+        volby.add("Místnost: "+lok.getNazev());
         popisy.add(lok.getPopis());
 
         for (Predmet p : lok.getPredmety()) {
@@ -46,7 +46,7 @@ public class Popis extends Prikaz {
             popisy.add(p.getPopis());
         }
 
-        System.out.println("Co chceš prozkoumat?");
+        System.out.println("\nCo chceš prozkoumat?");
         for (int i = 0; i < volby.size(); i++) {
             System.out.println((i + 1) + ". " + volby.get(i));
         }
@@ -59,10 +59,10 @@ public class Popis extends Prikaz {
             if (volba >= 0 && volba < popisy.size()) {
                 return "\n" + popisy.get(volba);
             } else {
-                return "Neplatná volba.";
+                return "\nNeplatná volba.";
             }
         } catch (NumberFormatException e) {
-            return "Zadej číslo.";
+            return "\nZadej číslo.";
         }
     }
 

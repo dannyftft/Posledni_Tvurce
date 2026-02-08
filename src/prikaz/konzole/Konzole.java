@@ -38,11 +38,11 @@ public class Konzole {
         System.out.print(">>");
         String prikaz = scanner.nextLine().trim().toLowerCase();
         if (hra.getBojovyManager().jeSouboj() && !prikaz.equals("utok") && !prikaz.equals("utek") && !prikaz.equals("stav") && !prikaz.equals("konec") && !prikaz.equals("inventar")) {
-            System.out.println("Probíhá souboj! Můžeš použít pouze: utok, utek, stav");
+            System.out.println("\nProbíhá souboj! Můžeš použít pouze: utok, utek, stav, inventar");
             return;
         }
         if (hra.jeVDialogu() && !prikaz.equals("mluv") && !prikaz.equals("nemluv") && !prikaz.equals("konec")) {
-            System.out.println("Probíhá dialog! Můžeš použít pouze: mluv (pro odpověď), nemluv (pro ukončení)");
+            System.out.println("\nProbíhá dialog! Můžeš použít pouze: mluv (pro odpověď), nemluv (pro ukončení)");
             return;
         }
 

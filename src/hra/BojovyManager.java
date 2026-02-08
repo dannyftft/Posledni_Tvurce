@@ -53,7 +53,7 @@ public class BojovyManager {
             }
         }
 
-        System.out.print("\n>>");
+        System.out.print(">>");
         int volba = scanner.nextInt();
         scanner.nextLine();
 
@@ -79,7 +79,7 @@ public class BojovyManager {
             }
             pouzityPredmet = kamen;
         } else {
-            return "Neplatná volba.";
+            return "\nNeplatná volba.";
         }
 
         String vysledek = UtokHrace(bonusUtok);
@@ -94,13 +94,13 @@ public class BojovyManager {
 
     public String UtokHrace(int bonusUtok) {
         if (!jeSouboj) {
-            return "Nyní neprobíhá souboj.";
+            return "\nNyní neprobíhá souboj.";
         }
 
         int poskozeni = hrac.getUtok() + bonusUtok;
         nepritel.poskozeni(poskozeni);
 
-        String vysledek = "Útočíš na " + nepritel.getNazev() + " a způsobíš " + poskozeni + " poškození.\n";
+        String vysledek = "\nÚtočíš na " + nepritel.getNazev() + " a způsobíš " + poskozeni + " poškození.\n";
 
         if (nepritel.jePorazen()) {
             vysledek += nepritel.getNazev() + " byl poražen!";
@@ -135,10 +135,10 @@ public class BojovyManager {
 
     public String pokusUtek(Hra hra) {
         if (!jeSouboj) {
-            return "Nyní neprobíhá souboj.";
+            return "\nNyní neprobíhá souboj.";
         }
 
-        String vysledek = "Utekl jsi ze souboje!";
+        String vysledek = "\nUtekl jsi ze souboje!";
         jeSouboj = false;
 
         // I při útěku kontrola jestli v místnosti nejsou další nepřátelé

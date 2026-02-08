@@ -21,10 +21,10 @@ public class Pouzij extends Prikaz {
         boolean jeTuMinihra = (minihra != null);
 
         if (hra.getInventar().getPredmety().isEmpty() && !jeTuMinihra) {
-            return "Tady není nic, co bys mohl použít.";
+            return "\nTady není nic, co bys mohl použít.";
         }
 
-        System.out.println("Co chceš použít?");
+        System.out.println("\nCo chceš použít?");
         int index = 1;
 
         for (Predmet p : hra.getInventar().getPredmety()) {
@@ -38,10 +38,12 @@ public class Pouzij extends Prikaz {
 
             } else if(lokace.getId().equals("laborator")) {
                 System.out.println(index + ". Terminál");
+            } else if(lokace.getId().equals("ridici")){
+                System.out.println(index +". Řídící terminál" );
             }
         }
 
-        System.out.print("Volba: ");
+        System.out.print(">>");
 
         try {
             int volba = scanner.nextInt();
@@ -75,7 +77,7 @@ public class Pouzij extends Prikaz {
             scanner.nextLine();
             return "Zadej prosím číslo ze seznamu.";
         }
-        return null;
+        return "";
     }
 
     @Override

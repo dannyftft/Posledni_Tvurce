@@ -18,6 +18,7 @@ public abstract class Lokace {
     protected ArrayList<Nepritel> nepratelove;
     protected boolean zamcena;
     protected int pozadovanaUrovenKarty;
+    private boolean auroraUvod = false;
 
     public Lokace(HraData.LokaceData data) {
         this.id = data.id;
@@ -29,6 +30,7 @@ public abstract class Lokace {
         this.predmety = new ArrayList<>();
         this.postavy = new ArrayList<>();
         this.nepratelove = new ArrayList<>();
+        this.auroraUvod = auroraUvod();
         }
 
     public void pridejPropojeni(Lokace lokace) {
@@ -95,5 +97,13 @@ public abstract class Lokace {
     }
 
     public void Vyhra(){
+    }
+
+    public boolean auroraUvod() {
+        return auroraUvod;
+    }
+
+    public void setAuroraUVod(boolean stav) {
+        this.auroraUvod = stav;
     }
 }

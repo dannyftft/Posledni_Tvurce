@@ -12,7 +12,7 @@ public class Stav extends Prikaz {
     @Override
     public String execute() {
         Hrac h = hra.getHrac();
-        return "Stav:\n" +
+        return "\nStav:\n" +
                 "Zdraví: " + h.getZdravi() + "/" + h.getMaxZdravi() + "\n" +
                 "Útok: " + h.getUtok();
     }

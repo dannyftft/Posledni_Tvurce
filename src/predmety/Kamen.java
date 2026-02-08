@@ -14,7 +14,7 @@ public class Kamen extends Predmet {
 
     @Override
     public String pouzit(Hra hra) {
-        return "Kámen lze použít pouze v boji.";
+        return "\nKámen lze použít pouze v boji.";
     }
 
     public int getPoskozeni() {

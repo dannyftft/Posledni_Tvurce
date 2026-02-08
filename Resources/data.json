@@ -78,7 +78,7 @@
       "muzuZpet": true,
       "zamcena": true,
       "pozadovana_uroven_karty": 1,
-      "predmety": ["kamen"],
+      "predmety": ["kamen","karta"],
       "nepratelove": ["robot", "dron"],
       "postavy": ["aurora"]
     },

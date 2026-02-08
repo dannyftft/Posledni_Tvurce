@@ -15,14 +15,13 @@ public class Prohledej extends Prikaz {
     public String execute() {
         Lokace lokace = hra.getAktualniLokace();
 
-        String s = "Místnost: " + lokace.getNazev() + "\n";
-        s = s + lokace.getPopis() + "\n";
+        String s = "\nMístnost: " + lokace.getNazev() + "\n";
 
         // Výpis předmětů
         if (!lokace.getPredmety().isEmpty()) {
             s = s + "Věci: ";
             for (Predmet p : lokace.getPredmety()) {
-                s = s + p.getNazev() + " ";
+                s = s + p.getNazev() + ", ";
             }
             s = s + "\n";
         }
@@ -31,7 +30,7 @@ public class Prohledej extends Prikaz {
         if (!lokace.getPostavy().isEmpty()) {
             s = s + "Postavy: ";
             for (Postava p : lokace.getPostavy()) {
-                s = s + p.getJmeno() + " ";
+                s = s + p.getJmeno() + ", ";
             }
         }
 

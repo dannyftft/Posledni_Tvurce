@@ -15,7 +15,7 @@ public class Aurora extends Postava {
         if (!aktivni) {
             return new String[]{"Aurora neodpovídá."};
         }
-        return Cteni.nactiDialogVolby(this.id, aktualniLokace);
+        return Cteni.DialogVolby(this.id, aktualniLokace);
     }
 
     @Override
@@ -23,22 +23,17 @@ public class Aurora extends Postava {
         if (!aktivni) {
             return "Aurora mlčí.";
         }
-        return Cteni.nactiDialogOdpoved(this.id, aktualniLokace, cisloVolby);
+        return Cteni.DialogOdpoved(this.id, aktualniLokace, cisloVolby);
     }
 
     @Override
     public String getUvodniDialog(String lokaceId) {
         this.aktualniLokace = lokaceId;
-        return Cteni.nactiUvodniDialog(this.id, lokaceId);
+        return Cteni.UvodniDialog(this.id, lokaceId);
     }
 
     @Override
     public boolean muzeMluvit() {
         return aktivni;
-    }
-
-    @Override
-    public void nastavLokaci(String lokaceId) {
-        this.aktualniLokace = lokaceId;
     }
 }

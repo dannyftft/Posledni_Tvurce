@@ -31,7 +31,6 @@ public class Hra {
         vytvorMapu();
         Konzole konzole = new Konzole(this);
         System.out.println("\n"+konzole.SeznamPrikazu()+"\n");
-        vytvorMapu();
         String uvod = "";
         for (Postava p : aktualniLokace.getPostavy()) {
             if (p.getId().equals("aurora")) {
@@ -84,7 +83,7 @@ public class Hra {
             case "jidelna": return new Jidelna(data);
             case "obytnyProstor": return new ObytnyProstor(data);
             case "testovaci": return new Testovaci(data);
-            case "ridici": return new Ridici(data);
+            case "ridici": return new Ridici(data,this);
             default:
                 throw new IllegalArgumentException("Neznámá lokace: " + id);
         }
@@ -193,10 +192,6 @@ public class Hra {
 
     public void ZmenaLokace(Lokace novaLokace) {
         this.aktualniLokace = novaLokace;
-    }
-
-    public void setAktualniLokace(Lokace lokace) {
-        this.aktualniLokace = lokace;
     }
 
     public void setKonec(boolean konec) {

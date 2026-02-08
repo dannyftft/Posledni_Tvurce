@@ -18,17 +18,17 @@ public class Jdi extends Prikaz {
     @Override
     public String execute() {
         if (hra.getBojovyManager().jeSouboj()) {
-            return "Nemůžeš odejít, probíhá souboj!";
+            return "\nNemůžeš odejít, probíhá souboj!";
         }
 
         Lokace aktualni = hra.getAktualniLokace();
         List<Lokace> sousedi = aktualni.getSousedniLokace();
 
         if (sousedi.isEmpty()) {
-            return "Odtud nelze nikam jít.";
+            return "\nOdtud nelze nikam jít.";
         }
 
-        System.out.println("Kam chceš jít?");
+        System.out.println("\nKam chceš jít?");
         for (int i = 0; i < sousedi.size(); i++) {
             Lokace lokace = sousedi.get(i);
             String stavZamku = lokace.jeZamcena() ? " [ZAMČENO]" : "";
@@ -40,7 +40,7 @@ public class Jdi extends Prikaz {
         scanner.nextLine();
 
         if (volba < 0 || volba >= sousedi.size()) {
-            return "Neplatná volba.";
+            return "\nNeplatná volba.";
         }
 
         Lokace nova = sousedi.get(volba);
@@ -59,27 +59,30 @@ public class Jdi extends Prikaz {
                     nova.setZamcena(false);
                     System.out.println("\n[ SYSTÉM ] Karta přijata. Dveře byly odemčeny.");
                 } else if(Uroven == 0){
-                    return "Dveře vyžadují kartu úrovně " + potrebnaUroven;
+                    return "\nDveře vyžadují kartu úrovně " + potrebnaUroven;
                 }else {
-                    return "Dveře vyžadují kartu úrovně " + potrebnaUroven + ". Tvá karta má úroveň " + Uroven + ".";
+                    return "\nDveře vyžadují kartu úrovně " + potrebnaUroven + ". Tvá karta má úroveň " + Uroven + ".";
                 }
             }
             //Pokud je zamčeno ale úroveň karty je 0 vyžaduje to terminál
             else {
-                return "Dveře jsou mechanicky zablokovány. Musíš najít jiný způsob, jak je otevřít.";
+                return "\nDveře jsou mechanicky zablokovány. Musíš najít jiný způsob, jak je otevřít.";
             }
         }
 
         hra.ZmenaLokace(nova);
 
-        String vysledek = "Přicházíš do: " + nova.getNazev() + "\n" + nova.getPopis() + "\n";
+        String vysledek = "\nPřicházíš do: " + nova.getNazev() + "\n" + nova.getPopis() + "\n";
 
-        //  Pokud je v nové místnosti aurora hned promluví
-        for (Postava p : nova.getPostavy()) {
-            if (p.getId().equals("aurora")) {
-                String uvodniDialog = p.getUvodniDialog(nova.getId());
-                if (!uvodniDialog.isEmpty()) {
-                    vysledek += "\nAurora:\n" + uvodniDialog;
+        //  Pokud je v nové místnosti aurora hned promluví pokud je podruhé v nové místnosti nepromluví
+        if (!nova.auroraUvod()) {
+            for (Postava p : nova.getPostavy()) {
+                if (p.getId().equals("aurora")) {
+                    String uvodniDialog = p.getUvodniDialog(nova.getId());
+                    if (!uvodniDialog.isEmpty()) {
+                        vysledek += "\nAurora:\n" + uvodniDialog;
+                        nova.setAuroraUVod(true);
+                    }
                 }
             }
         }
@@ -89,7 +92,7 @@ public class Jdi extends Prikaz {
             Nepritel nepritel = nova.getNepratelove().get(0);
             hra.getBojovyManager().ZacniSouboj(hra.getHrac(), nepritel, hra.getInventar());
 
-            vysledek += "\n" + nepritel.getNazev() + " tě napadl!\n";
+            vysledek += "\n\n" + nepritel.getNazev() + " tě napadl!\n";
             vysledek += "Zdraví nepřítele: " + nepritel.getZdravi() + "\n";
             vysledek += "Tvoje zdraví: " + hra.getHrac().getZdravi() + "/" + hra.getHrac().getMaxZdravi();
             vysledek += "\n\nPoužij 'utok' pro útok nebo 'utek' pro pokus o útěk.";

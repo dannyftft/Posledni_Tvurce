@@ -39,6 +39,7 @@ public class Logicka implements Minihra {
                         System.out.println("Uzel " + volba + " aktivován.");
 
                         if (aktualniKrok == 4) {
+                            zobrazStav();
                             System.out.println("\nObvod obnoven! Skříň se odemyká...");
                             return true;
                         }

@@ -15,24 +15,24 @@ public class PoskozenyRobot extends Postava {
         if (!aktivni) {
             return new String[]{"Robot je nefunkční a neodpovídá."};
         }
-        return Cteni.nactiDialogVolby(this.id, "servis");
+        return Cteni.DialogVolby(this.id, "servis");
     }
 
     @Override
     public String getDialogOdpoved(int cisloVolby) {
         if (!aktivni) {
-            return "Robot tiše leží bez reakce.";
+            return "\nRobot tiše leží bez reakce.";
         }
-        return Cteni.nactiDialogOdpoved(this.id, "servis", cisloVolby);
+        return Cteni.DialogOdpoved(this.id, "servis", cisloVolby);
     }
 
 
     @Override
     public String getUvodniDialog(String lokace) {
         if(!aktivni){
-            return "Robot tiše leží bez reakce.";
+            return "\nRobot tiše leží bez reakce.";
         }
-        return Cteni.nactiUvodniDialog(this.id, "servis");
+        return Cteni.UvodniDialog(this.id, "servis");
     }
 
     @Override

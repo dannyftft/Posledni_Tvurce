@@ -16,10 +16,10 @@ public class Zahod extends Prikaz {
     public String execute() {
 
         if (hra.getInventar().getPredmety().isEmpty()) {
-            return "Nemáš u sebe žádné předměty.";
+            return "\nNemáš u sebe žádné předměty.";
         }
 
-        System.out.println("Co chceš zahodit?");
+        System.out.println("\nCo chceš zahodit?");
         for (int i = 0; i < hra.getInventar().getPredmety().size(); i++) {
             System.out.println((i + 1) + ". " +
                     hra.getInventar().getPredmety().get(i).getNazev());
@@ -30,7 +30,7 @@ public class Zahod extends Prikaz {
         scanner.nextLine();
 
         if (volba < 0 || volba >= hra.getInventar().getPredmety().size()) {
-            return "Neplatná volba.";
+            return "\nNeplatná volba.";
         }
 
         Predmet predmet = hra.getInventar().getPredmety().get(volba);
@@ -40,7 +40,7 @@ public class Zahod extends Prikaz {
         Lokace lokace = hra.getAktualniLokace();
         lokace.pridejPredmet(predmet);
 
-        return "Zahodil jsi: " + predmet.getNazev();
+        return "\nZahodil jsi: " + predmet.getNazev();
     }
 
     @Override

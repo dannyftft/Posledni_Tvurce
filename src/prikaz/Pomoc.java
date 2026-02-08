@@ -12,7 +12,7 @@ public class Pomoc extends Prikaz {
 
     @Override
     public String execute() {
-        return konzole.SeznamPrikazu();
+        return "\n"+konzole.SeznamPrikazu();
     }
 
     @Override

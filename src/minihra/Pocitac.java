@@ -47,6 +47,7 @@ public class Pocitac implements Minihra {
         }
 
         if (jeVseAktivni()) {
+            vypisVedeni();
             System.out.println("\n[ OK ] Energetický okruh uzavřen. Dveře jsou pod napětím.");
             return true;
         }

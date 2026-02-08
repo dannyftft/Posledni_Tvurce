@@ -18,32 +18,32 @@ public class Mluv extends Prikaz {
 
         // Kontrola jestli je v místnosti postava
         if (lokace.getPostavy().isEmpty()) {
-            return "Nikdo tu není. Možná si zkus promluvit se stěnou?";
+            return "\nNikdo tu není. Možná si zkus promluvit se stěnou?";
         }
 
         // Výběr postavy
-        System.out.println("S kým chceš mluvit?");
+        System.out.println("\nS kým chceš mluvit?");
         for (int i = 0; i < lokace.getPostavy().size(); i++) {
             System.out.println((i + 1) + ". " + lokace.getPostavy().get(i).getJmeno());
         }
 
-        System.out.print("Volba: ");
+        System.out.print(">>");
         String vstupPostava = scanner.nextLine().trim().toLowerCase();
 
         // Pokud hráč napíše nemluv
         if (vstupPostava.equals("nemluv")) {
-            return "Ukončil jsi dialog.";
+            return "\nUkončil jsi dialog.";
         }
 
         int volba;
         try {
             volba = Integer.parseInt(vstupPostava) - 1;
         } catch (NumberFormatException e) {
-            return "Musíš zadat číslo postavy.";
+            return "\nMusíš zadat číslo postavy.";
         }
 
         if (volba < 0 || volba >= lokace.getPostavy().size()) {
-            return "Taková postava tu není.";
+            return "\nTaková postava tu není.";
         }
 
         Postava postava = lokace.getPostavy().get(volba);
@@ -72,7 +72,7 @@ public class Mluv extends Prikaz {
             // Pokud hráč napíše nemluv
             if (vstup.equals("nemluv")) {
                 hra.setVDialogu(false);
-                return "Ukončil jsi dialog.";
+                return "\nUkončil jsi dialog.";
             }
 
             // Zpracování čísla volby

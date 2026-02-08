@@ -15,6 +15,6 @@ public class Deska extends Predmet {
     @Override
     public String pouzit(Hra hra) {
         hra.getHrac().vylec(leceni);
-        return "Použil jsi obvodovou desku. Obnoveno " + leceni + " HP.";
+        return "\nPoužil jsi obvodovou desku. Obnoveno " + leceni + " HP.";
     }
 }

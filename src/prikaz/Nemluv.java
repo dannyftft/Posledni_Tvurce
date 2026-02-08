@@ -11,9 +11,9 @@ public class Nemluv extends Prikaz {
     public String execute() {
         if (hra.jeVDialogu()) {
             hra.setVDialogu(false);
-            return "Dialog byl ukončen.";
+            return "\nDialog byl ukončen.";
         }
-        return "S nikým teď nemluvíš.";
+        return "\nS nikým teď nemluvíš.";
     }
 
     @Override

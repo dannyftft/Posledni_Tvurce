@@ -11,7 +11,7 @@ public class Utok extends Prikaz {
     @Override
     public String execute() {
         if (!hra.getBojovyManager().jeSouboj()) {
-            return "Nyní neprobíhá souboj.";
+            return "\nNyní neprobíhá souboj.";
         }
 
         String vysledek = hra.getBojovyManager().provedTah();

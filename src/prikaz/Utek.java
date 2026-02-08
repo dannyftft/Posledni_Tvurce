@@ -17,13 +17,13 @@ public class Utek extends Prikaz {
         BojovyManager boj = hra.getBojovyManager();
 
         if (!boj.jeSouboj()) {
-            return "Nyní neprobíhá souboj.";
+            return "\nNyní neprobíhá souboj.";
         }
 
         int sance = random.nextInt(100);
 
         if (sance < 50) {
-            String vysledek = "Pokusil ses utéct, ale nepodařilo se!\n";
+            String vysledek = "\nPokusil ses utéct, ale nepodařilo se!\n";
             vysledek += boj.UtokNepritele();
 
             if (!hra.getHrac().jeNazivu()) {

@@ -14,7 +14,7 @@ public class Trubka extends Predmet {
 
     @Override
     public String pouzit(Hra hra) {
-        return "Trubka se používá automaticky v boji.";
+        return "\nTrubka se používá automaticky v boji.";
     }
 
     public int getBonusSila() {

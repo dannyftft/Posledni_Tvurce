@@ -33,18 +33,18 @@ public class Jadro extends Predmet {
             }
         }
 
-        System.out.print("\n>> ");
+        System.out.print(">> ");
         int volba = scanner.nextInt();
         scanner.nextLine();
 
         if (volba == 1) {
             hra.getHrac().zvysSilu(bonusSila);
-            return "Použil jsi energetické jádro a zvýšil svou sílu o " + bonusSila + "\nNový útok: " + hra.getHrac().getUtok();
+            return "\nPoužil jsi energetické jádro a zvýšil svou sílu o " + bonusSila + "\nNový útok: " + hra.getHrac().getUtok();
         } else if (volba == 2 && robot != null && !robot.muzeMluvit()) {
             robot.opravit();
-            return "Opravil jsi robota!";
+            return "\nOpravil jsi robota!";
         }
 
-        return "Neplatná volba. Jádro nebylo použito.";
+        return "\nNeplatná volba. Jádro nebylo použito.";
     }
 }
