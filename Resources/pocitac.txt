@@ -1,0 +1,22 @@
+UVOD_pocitac:
+TERMINÁL AKTIVNÍ
+Vítejte v centrálním archivu laboratoří.
+Detekovány poškozené sektory dat.
+---
+
+VOLBA_pocitac:Záznam o projektu "Syntéza"
+VOLBA_pocitac:Diagnostika AI jednotky Aurora
+
+ODPOVED_pocitac_1:
+Projekt Syntéza:
+Pokus o stvoření dokonalého umělého člověka.
+Subjekty jsou tvořeny kombinací biologických částí a kybernetických systémů.
+Většina předchozích experimentů skončila selháním kvůli nestabilitě.
+---
+
+ODPOVED_pocitac_2:
+Jednotka AI Aurora:
+Stav integrity kritický.
+Staletí izolace a absence původního účelu vedly k rozpadu logických protokolů.
+Varování: Chování AI je vysoce nestabilní.
+---

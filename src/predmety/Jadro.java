@@ -5,6 +5,7 @@ import hra.HraData;
 import postavy.PoskozenyRobot;
 import postavy.Postava;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Jadro extends Predmet {
 
@@ -34,8 +35,15 @@ public class Jadro extends Predmet {
         }
 
         System.out.print(">> ");
-        int volba = scanner.nextInt();
-        scanner.nextLine();
+
+        int volba;
+        try {
+            volba = scanner.nextInt();
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return "\nNeplatná volba. Musíš zadat číslo.";
+        }
 
         if (volba == 1) {
             hra.getHrac().zvysSilu(bonusSila);

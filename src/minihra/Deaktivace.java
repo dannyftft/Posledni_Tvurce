@@ -1,5 +1,6 @@
 package minihra;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import hra.Hra;
 import data.Cteni;
@@ -83,11 +84,9 @@ public class Deaktivace implements Minihra {
                             break;
                     }
                 }
-            } catch (Exception e) {
-                System.out.println("!! Chyba: Zadej číslo sekce !!");
-                if (scanner.hasNextLine()) {
-                    scanner.nextLine();
-                }
+            } catch (InputMismatchException e) {
+                System.out.println("Zadej číslo sekce.");
+                scanner.nextLine();
             }
         }
 

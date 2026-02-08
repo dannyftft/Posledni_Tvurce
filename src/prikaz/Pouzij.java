@@ -5,6 +5,7 @@ import lokace.Lokace;
 import predmety.Predmet;
 import minihra.Minihra;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Pouzij extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
@@ -68,16 +69,16 @@ public class Pouzij extends Prikaz {
                         if (odmena != null) {
                             hra.getInventar().pridejPredmet(odmena);
                             return "Získal jsi: " + odmena.getNazev();
-                            }
                         }
                     }
+                }
             }
 
-        } catch (Exception e) {
+        } catch (InputMismatchException e) {
             scanner.nextLine();
-            return "Zadej prosím číslo ze seznamu.";
+            return "Neplatná volba.";
         }
-        return "";
+        return "\nNeplatná volba.";
     }
 
     @Override

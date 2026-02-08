@@ -4,6 +4,7 @@ import hra.Hra;
 import lokace.Lokace;
 import predmety.Predmet;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Zahod extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
@@ -26,8 +27,15 @@ public class Zahod extends Prikaz {
         }
 
         System.out.print(">>");
-        int volba = scanner.nextInt() - 1;
-        scanner.nextLine();
+
+        int volba;
+        try {
+            volba = scanner.nextInt() - 1;
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return "\nNeplatná volba.";
+        }
 
         if (volba < 0 || volba >= hra.getInventar().getPredmety().size()) {
             return "\nNeplatná volba.";

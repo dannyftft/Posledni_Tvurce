@@ -5,6 +5,7 @@ import lokace.Lokace;
 import predmety.Predmet;
 import predmety.Karta;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Seber extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
@@ -27,8 +28,15 @@ public class Seber extends Prikaz {
         }
 
         System.out.print(">>");
-        int volba = scanner.nextInt() - 1;
-        scanner.nextLine();
+
+        int volba;
+        try {
+            volba = scanner.nextInt() - 1;
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return "\nNeplatná volba.";
+        }
 
         if (volba < 0 || volba >= lokace.getPredmety().size()) {
             return "\nNeplatná volba.";

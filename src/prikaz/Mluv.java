@@ -4,6 +4,7 @@ import hra.Hra;
 import lokace.Lokace;
 import postavy.Postava;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Mluv extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
@@ -28,22 +29,18 @@ public class Mluv extends Prikaz {
         }
 
         System.out.print(">>");
-        String vstupPostava = scanner.nextLine().trim().toLowerCase();
-
-        // Pokud hráč napíše nemluv
-        if (vstupPostava.equals("nemluv")) {
-            return "\nUkončil jsi dialog.";
-        }
 
         int volba;
         try {
-            volba = Integer.parseInt(vstupPostava) - 1;
-        } catch (NumberFormatException e) {
-            return "\nMusíš zadat číslo postavy.";
+            volba = scanner.nextInt() - 1;
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return "\nNeplatná volba.";
         }
 
         if (volba < 0 || volba >= lokace.getPostavy().size()) {
-            return "\nTaková postava tu není.";
+            return "\nNeplatná volba.";
         }
 
         Postava postava = lokace.getPostavy().get(volba);
@@ -65,24 +62,26 @@ public class Mluv extends Prikaz {
             for (int i = 0; i < volby.length; i++) {
                 System.out.println((i + 1) + ". " + volby[i]);
             }
+            System.out.println("0. Ukončit dialog");
 
             System.out.print(">>");
-            String vstup = scanner.nextLine().trim().toLowerCase();
 
-            // Pokud hráč napíše nemluv
-            if (vstup.equals("nemluv")) {
-                hra.setVDialogu(false);
-                return "\nUkončil jsi dialog.";
-            }
-
-            // Zpracování čísla volby
+            int cislo;
             try {
-                int cislo = Integer.parseInt(vstup);
-                String odpoved = postava.getDialogOdpoved(cislo);
+                cislo = scanner.nextInt();
+                scanner.nextLine();
 
+                if (cislo == 0) {
+                    hra.setVDialogu(false);
+                    return "\nUkončil jsi dialog.";
+                }
+
+                String odpoved = postava.getDialogOdpoved(cislo);
                 System.out.println("\n" + postava.getJmeno() + ": " + odpoved);
-            } catch (Exception e) {
-                System.out.println("Zadej číslo volby nebo 'nemluv'.");
+
+            } catch (InputMismatchException e) {
+                scanner.nextLine();
+                System.out.println("Zadej číslo volby nebo 0 pro konec.");
             }
         }
 

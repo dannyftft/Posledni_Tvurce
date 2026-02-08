@@ -1,5 +1,6 @@
 package minihra;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Logicka implements Minihra {
@@ -49,8 +50,9 @@ public class Logicka implements Minihra {
                         aktualniKrok = 0;
                     }
                 }
-            } catch (NumberFormatException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Zadej číslo uzlu.");
+                scanner.nextLine();
             }
         }
         return false;

@@ -50,7 +50,7 @@ public class Konzole {
             System.out.println(mapa.get(prikaz).execute());
             exit = mapa.get(prikaz).exit();
         } else {
-            System.out.println(">> Nedefinovany prikaz zadej 'pomoc' pro seznam příkazů");
+            System.out.println("\nNedefinovany prikaz zadej 'pomoc' pro seznam příkazů");
         }
     }
 

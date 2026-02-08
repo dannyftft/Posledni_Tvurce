@@ -5,6 +5,7 @@ import predmety.Predmet;
 import predmety.Trubka;
 import predmety.Kamen;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class BojovyManager {
     private Hrac hrac;
@@ -54,8 +55,15 @@ public class BojovyManager {
         }
 
         System.out.print(">>");
-        int volba = scanner.nextInt();
-        scanner.nextLine();
+
+        int volba;
+        try {
+            volba = scanner.nextInt();
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return "\nNeplatná volba. Musíš zadat číslo útoku.";
+        }
 
         int bonusUtok;
         Predmet pouzityPredmet = null;

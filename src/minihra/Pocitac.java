@@ -2,6 +2,8 @@ package minihra;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.InputMismatchException;
+import data.Cteni;
 
 public class Pocitac implements Minihra {
     private int[] segmenty = new int[9];
@@ -40,15 +42,47 @@ public class Pocitac implements Minihra {
                 if (volba >= 1 && volba <= 9) {
                     provedTah(volba);
                 }
-            } catch (Exception e) {
-                System.out.println("!! Chyba: Zadejte kód sekce (číslo) !!");
+            } catch (InputMismatchException e) {
+                System.out.println("Zadej číslo sekce.");
                 scanner.nextLine();
             }
         }
 
+        // Pokud je minihra vyhraná spustí se lore část
         if (jeVseAktivni()) {
             vypisVedeni();
             System.out.println("\n[ OK ] Energetický okruh uzavřen. Dveře jsou pod napětím.");
+
+            System.out.println("\n" + Cteni.UvodniDialog("pocitac", "pocitac"));
+
+            boolean prohlizeni = true;
+            while (prohlizeni) {
+                String[] volby = Cteni.DialogVolby("pocitac", "pocitac");
+
+                System.out.println("\nDATABÁZE:");
+                for (int i = 0; i < volby.length; i++) {
+                    System.out.println((i + 1) + ". " + volby[i]);
+                }
+                System.out.println("0. Ukončit terminál");
+                System.out.print(">> ");
+
+                try {
+                    int volba = scanner.nextInt();
+                    scanner.nextLine();
+
+                    if (volba == 0) {
+                        prohlizeni = false;
+                    } else if (volba > 0 && volba <= volby.length) {
+                        String text = Cteni.DialogOdpoved("pocitac", "pocitac", volba);
+                        System.out.println("\n" + text);
+                    } else {
+                        System.out.println("Neplatná volba.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Zadej číslo");
+                    scanner.nextLine();
+                }
+            }
             return true;
         }
         return false;

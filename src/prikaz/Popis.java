@@ -8,6 +8,7 @@ import postavy.Postava;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Popis extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
@@ -18,15 +19,15 @@ public class Popis extends Prikaz {
 
     @Override
     public String execute() {
-        Lokace lok = hra.getAktualniLokace();
+        Lokace lokace = hra.getAktualniLokace();
 
         List<String> volby = new ArrayList<>();
         List<String> popisy = new ArrayList<>();
 
-        volby.add("Místnost: "+lok.getNazev());
-        popisy.add(lok.getPopis());
+        volby.add("Místnost: "+ lokace.getNazev());
+        popisy.add(lokace.getPopis());
 
-        for (Predmet p : lok.getPredmety()) {
+        for (Predmet p : lokace.getPredmety()) {
             volby.add("Předmět: " + p.getNazev());
             popisy.add(p.getPopis());
         }
@@ -41,7 +42,7 @@ public class Popis extends Prikaz {
             popisy.add(hra.getInventar().getKarta().getPopis());
         }
 
-        for (Postava p : lok.getPostavy()) {
+        for (Postava p : lokace.getPostavy()) {
             volby.add("Postava: " + p.getJmeno());
             popisy.add(p.getPopis());
         }
@@ -52,17 +53,20 @@ public class Popis extends Prikaz {
         }
 
         System.out.print(">> ");
-        int volba = scanner.nextInt() - 1;
-        scanner.nextLine();;
 
+        int volba;
         try {
-            if (volba >= 0 && volba < popisy.size()) {
-                return "\n" + popisy.get(volba);
-            } else {
-                return "\nNeplatná volba.";
-            }
-        } catch (NumberFormatException e) {
-            return "\nZadej číslo.";
+            volba = scanner.nextInt() - 1;
+            scanner.nextLine();
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            return "\nNeplatná volba.";
+        }
+
+        if (volba >= 0 && volba < popisy.size()) {
+            return "\n" + popisy.get(volba);
+        } else {
+            return "\nNeplatná volba.";
         }
     }
 

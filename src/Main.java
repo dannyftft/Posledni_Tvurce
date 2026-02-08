@@ -1,4 +1,4 @@
-//TODO většina tříd pro příkazy nemají způsob vyřešení špatné volby
+//TODO Memory leak -> pravděpodobně kvůli tomu že nezavírám scannery
 import hra.Hra;
 
 public class Main {
