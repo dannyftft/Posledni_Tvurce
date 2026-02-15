@@ -1,4 +1,3 @@
-
 # Poslední tvůrce
 
 Textová adventura o úniku z opuštěného technologického komplexu. Probouzíš se v temné místnosti bez vzpomínek jediným společníkem je umělá inteligence Aurora. Tvým cílem je prozkoumat komplex, odhalit pravdu o své existenci a najít cestu ven.
