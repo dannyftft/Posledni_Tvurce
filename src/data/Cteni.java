@@ -41,7 +41,7 @@ public class Cteni {
 
             return uvod.trim();
         } catch (IOException e) {
-            return "";
+            return "Chyba při čtení dialogu.";
         }
     }
 
