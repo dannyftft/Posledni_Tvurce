@@ -27,7 +27,7 @@ Hra se ovládá zadáváním příkazů. Po zadání příkazu se často zobraz�
 - `útok` - zaútočí na nepřítele
 - `útěk` - pokusí se utéct ze souboje
 
-**Jiné**
+**Jiné:**
 - `stav` - zobrazí tvoje zdraví a statistiky
 - `pomoc` - zobrazí seznam všech příkazů
 - `konec` - ukončí hru
@@ -55,12 +55,6 @@ Hra se ovládá zadáváním příkazů. Po zadání příkazu se často zobraz�
 ## Spuštění hry
 
 Hra vyžaduje Java 8 nebo novější.
-
-### Kompilace a spuštění:
-```bash
-javac Main.java
-java Main
-```
 
 ### V IntelliJ IDEA:
 1. Otevři projekt
