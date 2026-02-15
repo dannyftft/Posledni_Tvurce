@@ -6,6 +6,7 @@ import predmety.Predmet;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+// Příkaz pro zahození předmětu
 public class Zahod extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 

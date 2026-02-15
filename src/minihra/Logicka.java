@@ -3,6 +3,7 @@ package minihra;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// Logická minihra v jídelně
 public class Logicka implements Minihra {
     private Scanner scanner = new Scanner(System.in);
 

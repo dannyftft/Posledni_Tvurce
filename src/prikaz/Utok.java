@@ -3,12 +3,14 @@ package prikaz;
 import hra.Hra;
 import nepratel.Nepritel;
 
+// Příkaz pro útok v souboji
 public class Utok extends Prikaz {
     public Utok(Hra hra) {
         super(hra);
     }
 
     @Override
+    // Provede útok na nepřítele
     public String execute() {
         if (!hra.getBojovyManager().jeSouboj()) {
             return "\nNyní neprobíhá souboj.";

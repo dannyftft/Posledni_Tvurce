@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hra.Hra;
 import data.Cteni;
 
+// Minihra pro deaktivaci Aurory
 public class Deaktivace implements Minihra {
     private Scanner scanner = new Scanner(System.in);
     private Hra hra;

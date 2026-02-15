@@ -7,6 +7,7 @@ import predmety.Kamen;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+// Třída pro správu bojového systému
 public class BojovyManager {
     private Hrac hrac;
     private Nepritel nepritel;
@@ -18,6 +19,7 @@ public class BojovyManager {
         this.jeSouboj = false;
     }
 
+    // Zahájí nový souboj mezi hráčem a nepřítelem
     public void ZacniSouboj(Hrac hrac, Nepritel nepritel, InventarSpravce inventar) {
         this.hrac = hrac;
         this.nepritel = nepritel;
@@ -68,7 +70,7 @@ public class BojovyManager {
         int bonusUtok;
         Predmet pouzityPredmet = null;
 
-        //malinko blbý ale funguje pokud hráč má jenom kamen bude jako druhá volba pokud má kámen a trubku kámen bude na třetím místě
+        // Malinko blbý ale funguje pokud hráč má jenom kamen bude jako druhá volba pokud má kámen a trubku kámen bude na třetím místě
         // Spočítání sílu útoku
         if (volba == 1) {
             bonusUtok = 0;
@@ -76,6 +78,7 @@ public class BojovyManager {
             bonusUtok = trubka.getBonusSila();
         } else if (volba == 2 && kamen != null) {
             bonusUtok = kamen.getPoskozeni();
+            // Proti dronům způsobí kámen dvojnásobné poškození
             if (nepritel.getId().equals("dron")) {
                 bonusUtok *= 2;
             }
@@ -100,6 +103,7 @@ public class BojovyManager {
         return vysledek;
     }
 
+    // Provede útok hráče na nepřítele
     public String UtokHrace(int bonusUtok) {
         if (!jeSouboj) {
             return "\nNyní neprobíhá souboj.";
@@ -110,6 +114,7 @@ public class BojovyManager {
 
         String vysledek = "\nÚtočíš na " + nepritel.getNazev() + " a způsobíš " + poskozeni + " poškození.\n";
 
+        // Pokud byl nepřítel poražen ukončí souboj
         if (nepritel.jePorazen()) {
             vysledek += nepritel.getNazev() + " byl poražen!";
             jeSouboj = false;
@@ -122,6 +127,7 @@ public class BojovyManager {
         return vysledek;
     }
 
+    // Provede útok nepřítele na hráče
     public String UtokNepritele() {
         if (!jeSouboj || nepritel.jePorazen()) {
             return "";
@@ -133,6 +139,7 @@ public class BojovyManager {
         String vysledek = nepritel.getNazev() + " útočí a způsobí " + poskozeni + " poškození.\n";
         vysledek += "Tvoje zdraví: " + hrac.getZdravi() + "/" + hrac.getMaxZdravi();
 
+        // Pokud hráč zemřel ukončí souboj
         if (!hrac.jeNazivu()) {
             vysledek += "\n\nByl jsi poražen!";
             jeSouboj = false;
@@ -141,6 +148,7 @@ public class BojovyManager {
         return vysledek;
     }
 
+    // Pokus o útěk ze souboje
     public String pokusUtek(Hra hra) {
         if (!jeSouboj) {
             return "\nNyní neprobíhá souboj.";
@@ -155,6 +163,7 @@ public class BojovyManager {
         return vysledek;
     }
 
+    // Kontroluje zda v místnosti nejsou další nepřátelé a případně zahájí další souboj
     public String kontrolaDalsichNepratel(Hra hra) {
         String vysledek = "";
         // Vymažení aktuálního nepřítele ze seznamu v místnosti

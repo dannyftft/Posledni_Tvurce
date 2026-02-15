@@ -1,4 +1,3 @@
-//TODO Memory leak -> pravděpodobně kvůli tomu že nezavírám scannery
 import hra.Hra;
 
 public class Main {

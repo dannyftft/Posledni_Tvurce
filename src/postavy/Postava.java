@@ -2,6 +2,7 @@ package postavy;
 
 import hra.HraData;
 
+// Abstraktní třída pro NPC postavy
 public abstract class Postava {
     protected String id;
     protected String nazev;
@@ -34,6 +35,7 @@ public abstract class Postava {
         return this.id;
     }
 
+    // Vrátí úvodní dialog pro danou lokaci
     public String getUvodniDialog(String lokaceId) {
         return "";
     }

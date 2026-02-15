@@ -3,6 +3,7 @@ package predmety;
 import hra.Hra;
 import hra.HraData;
 
+// Abstraktní třída pro předměty
 public abstract class Predmet {
 
     protected String id;
@@ -12,6 +13,7 @@ public abstract class Predmet {
     protected boolean zabiraSlot;
     protected int uroven;
 
+    // Konstruktor načte data předmětu z JSON
     public Predmet(HraData.PredmetData data) {
         this.id = data.id;
         this.nazev = data.nazev;

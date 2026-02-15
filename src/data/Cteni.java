@@ -3,6 +3,7 @@ Resources/
     data.json -> obsahuje lokace, postavy, predmety, nepritele
     aurora.txt -> obsahuje dailog pro auroru
     poskozenyRobot.txt -> obsahuje dialog pro poškozeného Robota
+    pocitac.txt -> obsahuje lore pro Pocitac Minihra
 */
 
 package data;
@@ -10,6 +11,7 @@ package data;
 import java.io.*;
 import java.util.*;
 
+// Třída pro čtení textových souborů s dialogy
 public class Cteni {
 
     // Načte úvodní text postavy pro lokaci
@@ -22,13 +24,15 @@ public class Cteni {
             boolean cteme = false;
             String klic = "UVOD_" + lokaceId + ":";
 
+            // Hledá značku pro úvodní dialog v souboru
             while ((radek = br.readLine()) != null) {
                 if (radek.equals(klic)) {
                     cteme = true;
                 } else if (radek.equals("---")) {
+                    // Konec bloku textu
                     if (cteme) break;
                 } else {
-                    // Pokud jsme v režimu čtení a řádek není jiná značka, přidáme text
+                    // Pokud jsme v režimu čtení a řádek není jiná značka přidáme text
                     if (cteme && !radek.startsWith("VOLBA_") && !radek.startsWith("ODPOVED_")) {
                         uvod += radek + "\n";
                     }
@@ -50,12 +54,14 @@ public class Cteni {
             String radek;
             String id = "VOLBA_" + lokaceId + ":";
 
+            // Vyhledá všechny řádky začínající značkou volby
             while ((radek = br.readLine()) != null) {
                 if (radek.startsWith(id)) {
                     volby.add(radek.substring(id.length()).trim());
                 }
             }
 
+            // Převod seznamu na pole
             int pocet = volby.size();
             String[] vyslednePole = new String[pocet];
 
@@ -79,10 +85,12 @@ public class Cteni {
             boolean cteme = false;
             String hledany = "ODPOVED_" + lokaceId + "_" + cisloVolby + ":";
 
+            // Hledá správnou značku odpovědi v souboru
             while ((radek = br.readLine()) != null) {
                 if (radek.equals(hledany)) {
                     cteme = true;
                 } else if (radek.equals("---")) {
+                    // Konec bloku odpovědi
                     if (cteme) break;
                 } else {
                     // Sběr textu proběhne jen pokud jsme uvnitř správného bloku

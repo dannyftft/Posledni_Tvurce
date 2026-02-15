@@ -6,6 +6,7 @@ import prikaz.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
+// Třída řídící konzolové rozhraní hry
 public class Konzole {
     private Hra hra;
     private boolean exit = false;
@@ -37,8 +38,8 @@ public class Konzole {
     private void proved() {
         System.out.print(">>");
         String prikaz = scanner.nextLine().trim().toLowerCase();
-        if (hra.getBojovyManager().jeSouboj() && !prikaz.equals("utok") && !prikaz.equals("utek") && !prikaz.equals("stav") && !prikaz.equals("konec") && !prikaz.equals("inventar")) {
-            System.out.println("\nProbíhá souboj! Můžeš použít pouze: utok, utek, stav, inventar");
+        if (hra.getBojovyManager().jeSouboj() && !prikaz.equals("utok") && !prikaz.equals("utek") && !prikaz.equals("stav") && !prikaz.equals("konec")) {
+            System.out.println("\nProbíhá souboj! Můžeš použít pouze: utok, utek, stav");
             return;
         }
         if (hra.jeVDialogu() && !prikaz.equals("mluv") && !prikaz.equals("nemluv") && !prikaz.equals("konec")) {

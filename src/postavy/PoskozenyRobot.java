@@ -3,6 +3,7 @@ package postavy;
 import data.Cteni;
 import hra.HraData;
 
+// Třída představující poškozeného humanoidního robota
 public class PoskozenyRobot extends Postava {
 
     public PoskozenyRobot(HraData.PostavaData data) {

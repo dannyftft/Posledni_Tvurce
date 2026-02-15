@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+// Příkaz pro zobrazení popisu předmětu
 public class Popis extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 

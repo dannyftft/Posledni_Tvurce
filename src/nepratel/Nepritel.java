@@ -2,6 +2,7 @@ package nepratel;
 
 import hra.HraData;
 
+// Abstraktní třída nepřítele
 public abstract class Nepritel {
     protected String id;
     protected String nazev;
@@ -17,6 +18,7 @@ public abstract class Nepritel {
         this.popis = data.popis;
     }
 
+    // Způsobí nepříteli poškození
     public void poskozeni(int poskozeni) {
         this.zdravi -= poskozeni;
         if (this.zdravi < 0) {

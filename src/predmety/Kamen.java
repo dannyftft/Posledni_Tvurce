@@ -3,6 +3,7 @@ package predmety;
 import hra.Hra;
 import hra.HraData;
 
+// Kámen jako vrhací zbraň
 public class Kamen extends Predmet {
 
     private final int poskozeni;
@@ -17,6 +18,7 @@ public class Kamen extends Predmet {
         return "\nKámen lze použít pouze v boji.";
     }
 
+    // Vrátí hodnotu poškození kamene
     public int getPoskozeni() {
         return poskozeni;
     }

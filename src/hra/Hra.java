@@ -10,6 +10,7 @@ import prikaz.konzole.Konzole;
 
 import java.util.*;
 
+// Hlavní třída hry řídící běh celé aplikace
 public class Hra {
     private Hrac hrac;
     private Lokace aktualniLokace;
@@ -27,11 +28,13 @@ public class Hra {
         this.vDialogu = false;
     }
 
+    // Spustí hru vytvoří mapu a zahájí konzoli
     public void start() {
         vytvorMapu();
         Konzole konzole = new Konzole(this);
         System.out.println("\n"+konzole.SeznamPrikazu()+"\n");
         String uvod = "";
+        // Vyhledá Auroru a zobrazí její úvodní dialog
         for (Postava p : aktualniLokace.getPostavy()) {
             if (p.getId().equals("aurora")) {
                 String uvodniDialog = p.getUvodniDialog(aktualniLokace.getId());
@@ -47,6 +50,7 @@ public class Hra {
 
     }
 
+    // Vytvoří mapu načte data a nastaví počáteční stav
     public void vytvorMapu() {
         hraData = HraData.nactiHerniData("/data.json");
 
@@ -72,6 +76,7 @@ public class Hra {
         aktualniLokace = lokaceMap.get("zacatecni");
     }
 
+    // Vytvoří konkrétní lokaci podle ID
     private Lokace vytvorLokaci(String id) {
         LokaceData data = hraData.najdiLokaci(id);
 
@@ -190,18 +195,22 @@ public class Hra {
         }
     }
 
+    // Změní aktuální lokaci hráče
     public void ZmenaLokace(Lokace novaLokace) {
         this.aktualniLokace = novaLokace;
     }
 
+    // Nastaví stav ukončení hry
     public void setKonec(boolean konec) {
         this.konec = konec;
     }
 
+    // Zjistí zda je hráč v dialogu
     public boolean jeVDialogu() {
         return vDialogu;
     }
 
+    // Nastaví stav dialogu
     public void setVDialogu(boolean stav) {
         this.vDialogu = stav;
     }

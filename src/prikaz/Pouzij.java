@@ -7,6 +7,7 @@ import minihra.Minihra;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+// Příkaz pro použití předmětu
 public class Pouzij extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 

@@ -3,6 +3,7 @@ package postavy;
 import data.Cteni;
 import hra.HraData;
 
+// Třída představující umělou inteligenci Aurora
 public class Aurora extends Postava {
     public String aktualniLokace;
 

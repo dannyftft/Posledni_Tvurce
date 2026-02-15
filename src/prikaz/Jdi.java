@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+// Příkaz pro pohyb mezi lokacemi
 public class Jdi extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 
@@ -17,6 +18,7 @@ public class Jdi extends Prikaz {
     }
 
     @Override
+    // Provede pohyb do vybrané lokace
     public String execute() {
         if (hra.getBojovyManager().jeSouboj()) {
             return "\nNemůžeš odejít, probíhá souboj!";
@@ -72,7 +74,7 @@ public class Jdi extends Prikaz {
                     return "\nDveře vyžadují kartu úrovně " + potrebnaUroven + ". Tvá karta má úroveň " + Uroven + ".";
                 }
             }
-            //Pokud je zamčeno ale úroveň karty je 0 vyžaduje to terminál
+            //Pokud je zamčeno ale úroveň karty je 0 vyžaduje to terminal (Pocitac Minihra)
             else {
                 return "\nDveře jsou mechanicky zablokovány. Musíš najít jiný způsob, jak je otevřít.";
             }

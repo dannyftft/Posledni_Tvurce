@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import data.Cteni;
 
+// Minihra s počítačem v laboratoři
 public class Pocitac implements Minihra {
     private int[] segmenty = new int[9];
     private Scanner scanner = new Scanner(System.in);

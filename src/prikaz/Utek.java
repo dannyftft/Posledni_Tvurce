@@ -4,12 +4,12 @@ import hra.Hra;
 import hra.BojovyManager;
 import java.util.Random;
 
+// Příkaz pro útěk ze souboje
 public class Utek extends Prikaz {
-    private Random random;
+    private Random random = new Random();
 
     public Utek(Hra hra) {
         super(hra);
-        this.random = new Random();
     }
 
     @Override

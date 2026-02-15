@@ -8,6 +8,7 @@ import nepratel.Nepritel;
 import java.util.ArrayList;
 import java.util.List;
 
+// Abstraktní třída představující herní lokaci
 public abstract class Lokace {
     protected String id;
     protected String nazev;
@@ -33,6 +34,7 @@ public abstract class Lokace {
         this.auroraUvod = auroraUvod();
         }
 
+    // Přidá propojení do jiné lokace
     public void pridejPropojeni(Lokace lokace) {
         if (!sousedniLokace.contains(lokace)) {
             sousedniLokace.add(lokace);
