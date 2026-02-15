@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Posledni_Tvurce:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Posledni_Tvurce_jar</output-path>
+    <root id="archive" name="Posledni_Tvurce.jar">
+      <element id="module-output" name="Posledni_Tvurce" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/gson-2.13.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/error_prone_annotations-2.38.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
