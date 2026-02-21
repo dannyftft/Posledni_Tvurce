@@ -63,26 +63,23 @@ public class Mluv extends Prikaz {
             for (int i = 0; i < volby.length; i++) {
                 System.out.println((i + 1) + ". " + volby[i]);
             }
-            System.out.println("0. Ukončit dialog");
+            System.out.println("nemluv - Ukončit dialog");
 
             System.out.print(">>");
 
-            int cislo;
+            String vstup = scanner.nextLine().trim().toLowerCase();
+
+            if (vstup.equals("nemluv")) {
+                hra.setVDialogu(false);
+                return "\nUkončil jsi dialog.";
+            }
+
             try {
-                cislo = scanner.nextInt();
-                scanner.nextLine();
-
-                if (cislo == 0) {
-                    hra.setVDialogu(false);
-                    return "\nUkončil jsi dialog.";
-                }
-
+                int cislo = Integer.parseInt(vstup);
                 String odpoved = postava.getDialogOdpoved(cislo);
                 System.out.println("\n" + postava.getJmeno() + ": " + odpoved);
-
-            } catch (InputMismatchException e) {
-                scanner.nextLine();
-                System.out.println("Zadej číslo volby nebo 0 pro konec.");
+            } catch (NumberFormatException e) {
+                System.out.println("Zadej číslo volby nebo 'nemluv' pro konec.");
             }
         }
 

@@ -1,7 +1,7 @@
 /*
 Resources/
     data.json -> obsahuje lokace, postavy, predmety, nepritele
-    aurora.txt -> obsahuje dailog pro auroru
+    aurora.txt -> obsahuje dialog pro auroru
     poskozenyRobot.txt -> obsahuje dialog pro poškozeného Robota
     pocitac.txt -> obsahuje lore pro Pocitac Minihra
 */
@@ -9,16 +9,26 @@ Resources/
 package data;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 // Třída pro čtení textových souborů s dialogy
 public class Cteni {
 
+    private static BufferedReader Soubor(String postavaId) throws IOException {
+        String cesta = "/" + postavaId + ".txt";
+        InputStream is = Cteni.class.getResourceAsStream(cesta);
+
+        if (is == null) {
+            throw new IOException("Resource nenalezen: " + cesta);
+        }
+
+        return new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+    }
+
     // Načte úvodní text postavy pro lokaci
     public static String UvodniDialog(String postavaId, String lokaceId) {
-        String soubor = "Resources/" + postavaId + ".txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(soubor))) {
+        try (BufferedReader br = Soubor(postavaId)) {
             String uvod = "";
             String radek;
             boolean cteme = false;
@@ -32,7 +42,7 @@ public class Cteni {
                     // Konec bloku textu
                     if (cteme) break;
                 } else {
-                    // Pokud jsme v režimu čtení a řádek není jiná značka přidáme text
+                    // Pokud jsme v režimu čtení a řádek není jiná značka, přidáme text
                     if (cteme && !radek.startsWith("VOLBA_") && !radek.startsWith("ODPOVED_")) {
                         uvod += radek + "\n";
                     }
@@ -41,15 +51,13 @@ public class Cteni {
 
             return uvod.trim();
         } catch (IOException e) {
-            return "Chyba při čtení dialogu.";
+            return "";
         }
     }
 
     // Vyhledá v souboru všechny dostupné volby dialogu pro lokaci
     public static String[] DialogVolby(String postavaId, String lokaceId) {
-        String soubor = "Resources/" + postavaId + ".txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(soubor))) {
+        try (BufferedReader br = Soubor(postavaId)) {
             List<String> volby = new ArrayList<>();
             String radek;
             String id = "VOLBA_" + lokaceId + ":";
@@ -77,9 +85,7 @@ public class Cteni {
 
     // Načte konkrétní odpověď postavy na základě zvolené možnosti
     public static String DialogOdpoved(String postavaId, String lokaceId, int cisloVolby) {
-        String soubor = "Resources/" + postavaId + ".txt";
-
-        try (BufferedReader br = new BufferedReader(new FileReader(soubor))) {
+        try (BufferedReader br = Soubor(postavaId)) {
             String odpoved = "";
             String radek;
             boolean cteme = false;
