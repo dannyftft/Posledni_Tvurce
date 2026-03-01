@@ -1,6 +1,7 @@
 package minihra;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 import hra.Hra;
 import data.Cteni;
@@ -21,8 +22,8 @@ public class Deaktivace implements Minihra {
             "PROTOCOL",
             "IZOLACE"
     };
-    //TODO udělat random
-    private String spravneHeslo = "STVORIT";
+    Random rand = new Random();
+    private String spravneHeslo = moznaHesla[rand.nextInt(moznaHesla.length)];
     private int maxPokusy = 6;
     private int pokusy = 0;
 
@@ -33,7 +34,6 @@ public class Deaktivace implements Minihra {
     @Override
     public boolean spust() {
         System.out.println(Cteni.UvodniDialog("aurora", "MINIHRA_DEAKTIVACE"));
-
 
         vypisTerminalu();
 

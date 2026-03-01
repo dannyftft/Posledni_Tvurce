@@ -8,7 +8,7 @@ import nepratel.Nepritel;
 import java.util.ArrayList;
 import java.util.List;
 
-// Abstraktní třída představující herní lokaci
+// Abstraktní třída představující lokaci
 public abstract class Lokace {
     protected String id;
     protected String nazev;

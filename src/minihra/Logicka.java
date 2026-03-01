@@ -1,19 +1,26 @@
 package minihra;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 // Logická minihra v jídelně
 public class Logicka implements Minihra {
     private Scanner scanner = new Scanner(System.in);
-
+    Random rand = new Random();
     private boolean[] uzly = {false, false, false, false};
-    //TODO změnit na random
     private int[] spravnePoradi = {1, 2, 3, 4};
     private int aktualniKrok = 0;
 
     @Override
     public boolean spust() {
+        // Náhodné zamíchání pořadí uzlů
+        for (int i = 3; i > 0; i--) {
+            int j = rand.nextInt(i + 1);
+            int tmp = spravnePoradi[i];
+            spravnePoradi[i] = spravnePoradi[j];
+            spravnePoradi[j] = tmp;
+        }
         System.out.println("Oprava obvodu:");
         System.out.println("Aurora: Obvod je poškozený. Musíš aktivovat uzly ve správném pořadí.");
         System.out.println("Jeden chybný krok a celý systém se resetuje.");

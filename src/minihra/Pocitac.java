@@ -73,11 +73,11 @@ public class Pocitac implements Minihra {
 
                     if (volba == 0) {
                         prohlizeni = false;
-                    } else if (volba > 0 && volba <= volby.length) {
+                    } else if (volba < 1 || volba > volby.length) {
+                        System.out.println("Neplatná volba.");
+                    } else {
                         String text = Cteni.DialogOdpoved("pocitac", "pocitac", volba);
                         System.out.println("\n" + text);
-                    } else {
-                        System.out.println("Neplatná volba.");
                     }
                 } catch (InputMismatchException e) {
                     System.out.println("Zadej číslo");
@@ -105,7 +105,7 @@ public class Pocitac implements Minihra {
     }
 
     private void vypisVedeni() {
-        System.out.println("\n    [ZDROJ]");
+        System.out.println("\n   [ZDROJ]");
         System.out.println("      | ");
         System.out.println("     (" + segmenty[0] + ")---(" + segmenty[1] + ")---(" + segmenty[2] + ")  [Sektory 1-3]");
         System.out.println("                  |                                                                      ");
