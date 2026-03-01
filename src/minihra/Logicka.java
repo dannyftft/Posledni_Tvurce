@@ -4,9 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Logická minihra v jídelně
- */
+// Logická minihra v jídelně
 public class Logicka implements Minihra {
     private Scanner scanner = new Scanner(System.in);
     Random rand = new Random();

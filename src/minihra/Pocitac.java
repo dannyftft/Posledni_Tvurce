@@ -5,9 +5,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import data.Cteni;
 
-/**
- * Minihra s počítačem v laboratoři
- */
+// Minihra s počítačem v laboratoři
 public class Pocitac implements Minihra {
     private int[] segmenty = new int[9];
     private Scanner scanner = new Scanner(System.in);
@@ -107,7 +105,7 @@ public class Pocitac implements Minihra {
     }
 
     private void vypisVedeni() {
-        System.out.println("\n    [ZDROJ]");
+        System.out.println("\n   [ZDROJ]");
         System.out.println("      | ");
         System.out.println("     (" + segmenty[0] + ")---(" + segmenty[1] + ")---(" + segmenty[2] + ")  [Sektory 1-3]");
         System.out.println("                  |                                                                      ");

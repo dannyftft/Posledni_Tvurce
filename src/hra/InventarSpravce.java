@@ -4,27 +4,19 @@ import predmety.Karta;
 import predmety.Predmet;
 import java.util.*;
 
-/**
- * Správce inventáře hráče
- */
+// Správce inventáře hráče
 public class InventarSpravce {
     private int kapacita;
     private List<Predmet> predmety;
     private Karta karta;
 
-    /**
-     * Konstruktor vytvoří inventář s kapacitou 3 sloty
-     */
+    // Konstruktor vytvoří inventář s kapacitou 3 sloty
     public InventarSpravce() {
         this.kapacita = 3;
         this.predmety = new ArrayList<>();
     }
 
-    /**
-     * Přidá předmět do inventáře pokud je místo
-     *
-     * @return {@code true} pokud byl předmět přidán {@code false} je-li plno
-     */
+    // Přidá předmět do inventáře pokud je místo
     public boolean pridejPredmet(Predmet predmet) {
         // Karta je speciální předmět který nezabírá slot
         if (predmet.getId().equals("karta")) {
@@ -51,9 +43,7 @@ public class InventarSpravce {
         return false;
     }
 
-    /**
-     * Odebere předmět z inventáře
-     */
+    // Odebere předmět z inventáře
     public void odeberPredmet(Predmet predmet) {
         predmety.remove(predmet);
         if (predmet.getId().equals("karta")) {
@@ -61,9 +51,7 @@ public class InventarSpravce {
         }
     }
 
-    /**
-     * Vypíše obsah inventáře jako text
-     */
+    // Vypíše obsah inventáře jako text
     public String vypisInventar() {
         String s = "\nInventář:\n";
 
@@ -83,9 +71,7 @@ public class InventarSpravce {
         return s;
     }
 
-    /**
-     * Najde předmět v inventáři podle názvu
-     */
+    // Najde předmět v inventáři podle názvu
     public Predmet getPredmet(String nazev) {
         for (Predmet p : predmety) {
             if (p.getNazev().equalsIgnoreCase(nazev)) {
@@ -98,18 +84,12 @@ public class InventarSpravce {
         return null;
     }
 
-    /**
-     * Kontrola zda inventář obsahuje předmět
-     */
+    // Kontrola zda inventář obsahuje předmět
     public boolean obsahujePredmet(String nazev) {
         return getPredmet(nazev) != null;
     }
 
-    /**
-     * Kontrola zda je volný slot v inventáři
-     *
-     * @return {@code true} pokud je volný slot
-     */
+    // Kontrola zda je volný slot v inventáři
     public boolean jeVolnySlot() {
         return predmety.size() < kapacita;
     }
@@ -122,9 +102,7 @@ public class InventarSpravce {
         return karta;
     }
 
-    /**
-     * Vylepší přístupovou kartu
-     */
+    // Vylepší přístupovou kartu
     public void vylepsiKartu() {
         if (this.karta != null) {
             this.karta.vylepsit();

@@ -7,9 +7,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-/**
- * Třída pro správu dat načtených z JSON souboru
- */
+// Třída pro správu dat načtených z JSON souboru
 public class HraData {
 
     public HracData hrac;
@@ -18,9 +16,7 @@ public class HraData {
     public ArrayList<PostavaData> postavy;
     public ArrayList<NepritelData> nepratelove;
 
-    /**
-     * Načte data z JSON souboru
-     */
+    // Načte data z JSON souboru
     public static HraData nactiHerniData(String resourcePath) {
         Gson gson = new Gson();
 
@@ -40,9 +36,7 @@ public class HraData {
         }
     }
 
-    /**
-     * Najde lokaci podle ID
-     */
+    // Najde lokaci podle ID
     public LokaceData najdiLokaci(String id) {
         for (LokaceData l : lokace) {
             if (l.id.equals(id)) {
@@ -52,9 +46,7 @@ public class HraData {
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
     }
 
-    /**
-     * Najde předmět podle ID
-     */
+    // Najde předmět podle ID
     public PredmetData najdiPredmet(String id) {
         for (PredmetData p : predmety) {
             if (p.id.equals(id)) {
@@ -64,9 +56,7 @@ public class HraData {
         return null;
     }
 
-    /**
-     * Najde postavu podle ID
-     */
+    // Najde postavu podle ID
     public PostavaData najdiPostavu(String id) {
         for (PostavaData p : postavy) {
             if (p.id.equals(id)) {
@@ -76,9 +66,7 @@ public class HraData {
         return null;
     }
 
-    /**
-     * Najde nepřítele podle ID
-     */
+    // Najde nepřítele podle ID
     public NepritelData najdiNepritele(String id) {
         for (NepritelData n : nepratelove) {
             if (n.id.equals(id)) {

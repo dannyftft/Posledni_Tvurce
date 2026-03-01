@@ -1,17 +1,13 @@
 package hra;
 
-/**
- * Třída představující hráče ve hře
- */
+// Třída představující hráče ve hře
 public class Hrac {
 
     private int zdravi;
     private int maxZdravi;
     private int utok;
 
-    /**
-     * Zraní hráče o zadanou hodnotu
-     */
+    // Zraní hráče o zadanou hodnotu
     public void zran(int hodnota) {
         this.zdravi -= hodnota;
         if (this.zdravi < 0) {
@@ -19,9 +15,7 @@ public class Hrac {
         }
     }
 
-    /**
-     * Vyléčí hráče o zadanou hodnotu
-     */
+    // Vyléčí hráče o zadanou hodnotu
     public void vylec(int hodnota) {
         this.zdravi += hodnota;
         if (this.zdravi > maxZdravi) {

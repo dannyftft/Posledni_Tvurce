@@ -6,9 +6,7 @@ import prikaz.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
-/**
- * Třída řídící konzolové rozhraní hry
- */
+// Třída řídící konzolové rozhraní hry
 public class Konzole {
     private Hra hra;
     private boolean exit = false;

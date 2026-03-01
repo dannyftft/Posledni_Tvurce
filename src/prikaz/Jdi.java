@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-/**
- * Příkaz pro pohyb mezi lokacemi
- */
+// Příkaz pro pohyb mezi lokacemi
 public class Jdi extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 
@@ -20,9 +18,7 @@ public class Jdi extends Prikaz {
     }
 
     @Override
-    /**
-     * Provede pohyb do vybrané lokace
-     */
+    // Provede pohyb do vybrané lokace
     public String execute() {
         if (hra.getBojovyManager().jeSouboj()) {
             return "\nNemůžeš odejít, probíhá souboj!";

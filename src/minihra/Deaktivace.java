@@ -6,9 +6,7 @@ import java.util.Scanner;
 import hra.Hra;
 import data.Cteni;
 
-/**
- * Minihra pro deaktivaci Aurory
- */
+// Minihra pro deaktivaci Aurory
 public class Deaktivace implements Minihra {
     private Scanner scanner = new Scanner(System.in);
     private Hra hra;
@@ -98,12 +96,6 @@ public class Deaktivace implements Minihra {
         return false;
     }
 
-    /**
-     * Spočítá počet znaků na správné pozici.
-     *
-     * @param hadani  hráčem zvolené heslo
-     * @param spravne správné heslo
-     */
     private int Shoda(String hadani, String spravne) {
         int shoda = 0;
         int delka = hadani.length();

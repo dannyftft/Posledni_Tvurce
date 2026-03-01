@@ -2,9 +2,7 @@ package prikaz;
 
 import hra.Hra;
 
-/**
- * Příkaz pro zobrazení inventáře
- */
+// Příkaz pro zobrazení inventáře
 public class Inventar extends Prikaz {
 
     public Inventar(Hra hra) {
@@ -12,9 +10,7 @@ public class Inventar extends Prikaz {
     }
 
     @Override
-    /**
-     * Zobrazí obsah inventáře
-     */
+    // Zobrazí obsah inventáře
     public String execute() {
         return hra.getInventar().vypisInventar();
     }
