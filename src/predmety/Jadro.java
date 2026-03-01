@@ -7,7 +7,9 @@ import postavy.Postava;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-// Energetické jádro pro vylepšení hráče nebo opravu robota
+/**
+ * Energetické jádro pro vylepšení hráče nebo opravu robota
+ */
 public class Jadro extends Predmet {
 
     private final int bonusSila;
@@ -18,7 +20,9 @@ public class Jadro extends Predmet {
     }
 
     @Override
-    // Použije jádro podle aktuální lokace
+    /**
+     * Použije jádro podle aktuální lokace
+     */
     public String pouzit(Hra hra) {
         Scanner scanner = new Scanner(System.in);
 

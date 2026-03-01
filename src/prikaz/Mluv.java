@@ -6,7 +6,9 @@ import postavy.Postava;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-// Příkaz pro zahájení dialogu s postavou
+/**
+ * Příkaz pro zahájení dialogu s postavou
+ */
 public class Mluv extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 

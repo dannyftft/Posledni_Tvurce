@@ -12,7 +12,9 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-// Třída pro čtení textových souborů s dialogy
+/**
+ * Třída pro čtení textových souborů s dialogy
+ */
 public class Cteni {
 
     private static BufferedReader Soubor(String postavaId) throws IOException {
@@ -26,7 +28,9 @@ public class Cteni {
         return new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
     }
 
-    // Načte úvodní text postavy pro lokaci
+    /**
+     * Načte úvodní text postavy pro lokaci
+     */
     public static String UvodniDialog(String postavaId, String lokaceId) {
         try (BufferedReader br = Soubor(postavaId)) {
             String uvod = "";
@@ -55,7 +59,9 @@ public class Cteni {
         }
     }
 
-    // Vyhledá v souboru všechny dostupné volby dialogu pro lokaci
+    /**
+     * Vyhledá v souboru všechny dostupné volby dialogu pro lokaci
+     */
     public static String[] DialogVolby(String postavaId, String lokaceId) {
         try (BufferedReader br = Soubor(postavaId)) {
             List<String> volby = new ArrayList<>();
@@ -83,7 +89,11 @@ public class Cteni {
         }
     }
 
-    // Načte konkrétní odpověď postavy na základě zvolené možnosti
+    /**
+     * Načte konkrétní odpověď postavy na základě zvolené možnosti
+     *
+     * @param cisloVolby číslo zvolené možnosti začínající od 1
+     */
     public static String DialogOdpoved(String postavaId, String lokaceId, int cisloVolby) {
         try (BufferedReader br = Soubor(postavaId)) {
             String odpoved = "";

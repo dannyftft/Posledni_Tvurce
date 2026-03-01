@@ -4,7 +4,9 @@ import hra.Hra;
 import hra.BojovyManager;
 import java.util.Random;
 
-// Příkaz pro útěk ze souboje
+/**
+ * Příkaz pro útěk ze souboje
+ */
 public class Utek extends Prikaz {
     private Random random = new Random();
 

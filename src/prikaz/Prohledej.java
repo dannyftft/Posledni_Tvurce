@@ -5,7 +5,9 @@ import lokace.Lokace;
 import predmety.Predmet;
 import postavy.Postava;
 
-// Příkaz pro prohledání lokace
+/**
+ * Příkaz pro prohledání lokace
+ */
 public class Prohledej extends Prikaz {
 
     public Prohledej(Hra hra) {
@@ -13,7 +15,9 @@ public class Prohledej extends Prikaz {
     }
 
     @Override
-    // Prohledá aktuální lokaci
+    /**
+     * Prohledá aktuální lokaci
+     */
     public String execute() {
         Lokace lokace = hra.getAktualniLokace();
 

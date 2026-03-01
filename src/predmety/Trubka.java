@@ -3,7 +3,9 @@ package predmety;
 import hra.Hra;
 import hra.HraData;
 
-// Kovová trubka je zbraň na blízko
+/**
+ * Kovová trubka je zbraň na blízko
+ */
 public class Trubka extends Predmet {
 
     private final int bonusSila;
@@ -18,7 +20,9 @@ public class Trubka extends Predmet {
         return "\nTrubka se používá automaticky v boji.";
     }
 
-    // Vrátí bonus k síle při použití trubky
+    /**
+     * Vrátí bonus k síle při použití trubky
+     */
     public int getBonusSila() {
         return bonusSila;
     }
