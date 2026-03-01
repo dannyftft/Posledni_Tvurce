@@ -7,7 +7,9 @@ import predmety.Karta;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-// Příkaz pro sebrání předmětu
+/**
+ * Příkaz pro sebrání předmětu
+ */
 public class Seber extends Prikaz {
     private Scanner scanner = new Scanner(System.in);
 
@@ -16,7 +18,9 @@ public class Seber extends Prikaz {
     }
 
     @Override
-    // Sebere předmět z lokace
+    /**
+     * Sebere předmět z lokace
+     */
     public String execute() {
         Lokace lokace = hra.getAktualniLokace();
 

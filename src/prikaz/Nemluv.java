@@ -2,7 +2,9 @@ package prikaz;
 
 import hra.Hra;
 
-// Příkaz pro ukončení dialogu
+/**
+ * Příkaz pro ukončení dialogu
+ */
 public class Nemluv extends Prikaz {
     public Nemluv(Hra hra) {
         super(hra);

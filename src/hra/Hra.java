@@ -10,7 +10,9 @@ import prikaz.konzole.Konzole;
 
 import java.util.*;
 
-// Hlavní třída hry řídící běh celé aplikace
+/**
+ * Hlavní třída hry řídící běh celé aplikace
+ */
 public class Hra {
     private Hrac hrac;
     private Lokace aktualniLokace;
@@ -28,7 +30,9 @@ public class Hra {
         this.vDialogu = false;
     }
 
-    // Spustí hru vytvoří mapu a zahájí konzoli
+    /**
+     * Spustí hru vytvoří mapu a zahájí konzoli
+     */
     public void start() {
         vytvorMapu();
         Konzole konzole = new Konzole(this);
@@ -50,7 +54,9 @@ public class Hra {
 
     }
 
-    // Vytvoří mapu načte data a nastaví počáteční stav
+    /**
+     * Vytvoří mapu načte data a nastaví počáteční stav
+     */
     public void vytvorMapu() {
         hraData = HraData.nactiHerniData("/data.json");
 
@@ -76,7 +82,9 @@ public class Hra {
         aktualniLokace = lokaceMap.get("zacatecni");
     }
 
-    // Vytvoří konkrétní lokaci podle ID
+    /**
+     * Vytvoří konkrétní lokaci podle ID
+     */
     private Lokace vytvorLokaci(String id) {
         LokaceData data = hraData.najdiLokaci(id);
 
@@ -94,7 +102,9 @@ public class Hra {
         }
     }
 
-    // Projde všechny místnosti a vytvoří mezi nimi průchody podle toho co je v souboru
+    /**
+     * Projde všechny místnosti a vytvoří mezi nimi průchody podle toho co je v souboru
+     */
     private void propojLokace(Map<String, Lokace> lokaceMap) {
         for (LokaceData data : hraData.lokace) {
             Lokace aktualni = lokaceMap.get(data.id);
@@ -117,7 +127,9 @@ public class Hra {
         }
     }
 
-    // Projde každou místnost a vloží do ní vše co tam podle souboru patří
+    /**
+     * Projde každou místnost a vloží do ní vše co tam podle souboru patří
+     */
     private void naplnLokace(Map<String, Lokace> lokaceMap) {
         for (LokaceData lokaceData : hraData.lokace) {
             Lokace lokace = lokaceMap.get(lokaceData.id);
@@ -154,7 +166,9 @@ public class Hra {
         }
     }
 
-    // Vytvoří instanci předmětu
+    /**
+     * Vytvoří instanci předmětu
+     */
     public Predmet vytvorPredmet(String id) {
         PredmetData data = hraData.najdiPredmet(id);
         if (data == null) return null; // Pokud data v JSON nejsou
@@ -169,7 +183,9 @@ public class Hra {
         }
     }
 
-    // Vytvoří instanci postavy
+    /**
+     * Vytvoří instanci postavy
+     */
     private Postava vytvorPostavu(String id) {
         PostavaData data = hraData.najdiPostavu(id);
         if (data == null) return null; // Pokud data v JSON nejsou
@@ -182,7 +198,9 @@ public class Hra {
         }
     }
 
-    // Vytvoří instanci nepřítele
+    /**
+     * Vytvoří instanci nepřítele
+     */
     private Nepritel vytvorNepritele(String id) {
         NepritelData data = hraData.najdiNepritele(id);
         if (data == null) return null; // Pokud data v JSON nejsou
@@ -195,22 +213,30 @@ public class Hra {
         }
     }
 
-    // Změní aktuální lokaci hráče
+    /**
+     * Změní aktuální lokaci hráče
+     */
     public void ZmenaLokace(Lokace novaLokace) {
         this.aktualniLokace = novaLokace;
     }
 
-    // Nastaví stav ukončení hry
+    /**
+     * Nastaví stav ukončení hry
+     */
     public void setKonec(boolean konec) {
         this.konec = konec;
     }
 
-    // Zjistí zda je hráč v dialogu
+    /**
+     * Zjistí zda je hráč v dialogu
+     */
     public boolean jeVDialogu() {
         return vDialogu;
     }
 
-    // Nastaví stav dialogu
+    /**
+     * Nastaví stav dialogu
+     */
     public void setVDialogu(boolean stav) {
         this.vDialogu = stav;
     }

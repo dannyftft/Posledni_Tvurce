@@ -3,7 +3,9 @@ package prikaz;
 import hra.Hra;
 import hra.Hrac;
 
-// Příkaz pro zobrazení stavu hráče
+/**
+ * Příkaz pro zobrazení stavu hráče
+ */
 public class Stav extends Prikaz {
 
     public Stav(Hra hra) {

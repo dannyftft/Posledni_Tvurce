@@ -7,7 +7,9 @@ import predmety.Kamen;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
-// Třída pro správu bojového systému
+/**
+ * Třída pro správu bojového systému
+ */
 public class BojovyManager {
     private Hrac hrac;
     private Nepritel nepritel;
@@ -19,7 +21,9 @@ public class BojovyManager {
         this.jeSouboj = false;
     }
 
-    // Zahájí nový souboj mezi hráčem a nepřítelem
+    /**
+     * Zahájí nový souboj mezi hráčem a nepřítelem
+     */
     public void ZacniSouboj(Hrac hrac, Nepritel nepritel, InventarSpravce inventar) {
         this.hrac = hrac;
         this.nepritel = nepritel;
@@ -27,7 +31,9 @@ public class BojovyManager {
         this.jeSouboj = true;
     }
 
-    // Hlavní menu souboje
+    /**
+     * Hlavní menu souboje
+     */
     public String provedTah() {
         if (!jeSouboj) {
             return "";
@@ -103,7 +109,11 @@ public class BojovyManager {
         return vysledek;
     }
 
-    // Provede útok hráče na nepřítele
+    /**
+     * Provede útok hráče na nepřítele
+     *
+     * @param bonusUtok bonus k útoku ze zbraně 0 pokud útočí bez zbraně
+     */
     public String UtokHrace(int bonusUtok) {
         if (!jeSouboj) {
             return "\nNyní neprobíhá souboj.";
@@ -127,7 +137,9 @@ public class BojovyManager {
         return vysledek;
     }
 
-    // Provede útok nepřítele na hráče
+    /**
+     * Provede útok nepřítele na hráče
+     */
     public String UtokNepritele() {
         if (!jeSouboj || nepritel.jePorazen()) {
             return "";
@@ -148,7 +160,9 @@ public class BojovyManager {
         return vysledek;
     }
 
-    // Pokus o útěk ze souboje
+    /**
+     * Pokus o útěk ze souboje
+     */
     public String pokusUtek(Hra hra) {
         if (!jeSouboj) {
             return "\nNyní neprobíhá souboj.";
@@ -163,7 +177,9 @@ public class BojovyManager {
         return vysledek;
     }
 
-    // Kontroluje zda v místnosti nejsou další nepřátelé a případně zahájí další souboj
+    /**
+     * Kontroluje zda v místnosti nejsou další nepřátelé a případně zahájí další souboj
+     */
     public String kontrolaDalsichNepratel(Hra hra) {
         String vysledek = "";
         // Vymažení aktuálního nepřítele ze seznamu v místnosti
